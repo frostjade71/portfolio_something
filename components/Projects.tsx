@@ -6,18 +6,18 @@ import { useRef } from 'react'
 
 const projects = [
     {
-        title: 'GameDev-G1',
-        description: 'Thesis project - A comprehensive game development platform with innovative features and engaging gameplay mechanics.',
-        tech: ['Game Development', 'Programming', 'Design'],
+        title: 'Word Weavers',
+        description: 'A Thesis project "Developing Educational Games for High School Language Arts: Design Principles and Effectiveness." A web-based platform that helps learners improve English skills through an interactive game, using PHP, CSS, Javascript/Phaser.js, and MySQL.',
+        tech: ['Student Platform', 'GWA Ratings', 'Leaderboards'],
         link: 'https://github.com/frostjade71/GameDev-G1',
         type: 'Thesis Project'
     },
     {
-        title: 'Editing Portfolio',
-        description: 'Collection of professional video editing work, presets, and creative content available for the community.',
-        tech: ['Video Editing', 'Creative Design', 'Content Creation'],
+        title: 'Video Editing',
+        description: 'Collection of anime edits from my instagram, and presets for the community to learn',
+        tech: ['Video Editing', 'Content Creation'],
         link: 'https://payhip.com/1eonardofr',
-        type: 'Creative Work'
+        type: 'Hobby Work'
     },
     {
         title: 'Open Source Contributions',

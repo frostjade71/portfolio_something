@@ -5,11 +5,10 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 const skills = [
-    { category: 'Languages', items: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++'] },
-    { category: 'Frontend', items: ['React', 'Next.js', 'Tailwind CSS', 'HTML/CSS'] },
-    { category: 'Backend', items: ['Node.js', 'Express', 'REST APIs', 'Database Design'] },
-    { category: 'Tools', items: ['Git', 'Docker', 'VS Code', 'Figma'] },
-    { category: 'Creative', items: ['Video Editing', 'Photo Editing', 'UI/UX Design'] },
+    { category: 'Languages', items: ['JavaScript', 'TypeScript', 'PHP', 'HTML', 'CSS'] },
+    { category: 'Multimedia Arts', items: ['Layout Design', 'Graphic Design', 'Video Editing'] },
+    { category: 'Tools', items: ['Canva', 'VS Code', 'Alight Motion', 'Figma'] },
+    { category: 'Teamwork & Collaboration', items: ['Communication', 'Adaptibility', 'Time Management'] },
 ]
 
 export default function Skills() {

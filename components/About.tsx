@@ -32,20 +32,8 @@ export default function About() {
                                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
                             >
-                                <p className="text-lg md:text-xl text-light-gray leading-relaxed mb-6">
-                                    Hello! I'm <span className="text-white font-semibold">Jaderby Peñaranda</span>,
-                                    a Computer Science senior at <span className="text-white font-semibold">HCCCI</span>.
-                                </p>
-
-                                <p className="text-lg md:text-xl text-light-gray leading-relaxed mb-6">
-                                    I'm passionate about creating innovative solutions through code and bringing
-                                    creative visions to life through digital media. My journey spans from developing
-                                    complex applications to crafting stunning visual content.
-                                </p>
-
                                 <p className="text-lg md:text-xl text-light-gray leading-relaxed">
-                                    When I'm not coding, you'll find me exploring new technologies, working on
-                                    creative editing projects, or contributing to open-source communities.
+                                    I am a dedicated college senior at Holy Cross College of Carigara Incorporated, pursuing Bachelor of Science in Computer Science. Consistently recognized on the Dean's List since first year, I am building a solid foundation in web technologies through coursework and practical projects. My background extends from programming into multimedia arts such as layout design, photography, and video editing, skills that enhance my technical capabilities as I continue advancing in web development.
                                 </p>
                             </motion.div>
 
@@ -57,7 +45,7 @@ export default function About() {
                                 className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-12 pt-12 border-t border-white/10"
                             >
                                 <div className="text-center">
-                                    <div className="text-3xl md:text-4xl font-bold text-white mb-2">4+</div>
+                                    <div className="text-3xl md:text-4xl font-bold text-white mb-2">2+</div>
                                     <div className="text-sm text-gray-500 font-mono">Years Coding</div>
                                 </div>
                                 <div className="text-center">

@@ -26,6 +26,20 @@ export default function Hero() {
                     transition={{ duration: 0.8 }}
                     className="text-center"
                 >
+                    {/* Profile Picture */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: mounted ? 1 : 0, scale: mounted ? 1 : 0.8 }}
+                        transition={{ duration: 0.8, delay: 0.1 }}
+                        className="mb-8"
+                    >
+                        <img
+                            src="/img/IMG_202511.png"
+                            alt="Profile"
+                            className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white/20 shadow-2xl mx-auto object-cover"
+                        />
+                    </motion.div>
+
                     {/* Name */}
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -55,7 +69,7 @@ export default function Hero() {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="text-base md:text-lg text-gray-500 mb-12 max-w-2xl mx-auto font-mono"
                     >
-                        Developer • Editor • Tech Enthusiast
+                        Developer • Editor
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -84,9 +98,9 @@ export default function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: mounted ? 1 : 0 }}
                         transition={{ duration: 0.8, delay: 1.2 }}
-                        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+                        className="mt-12"
                     >
-                        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center p-2">
+                        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center p-2 mx-auto">
                             <motion.div
                                 animate={{ y: [0, 12, 0] }}
                                 transition={{ duration: 1.5, repeat: Infinity }}

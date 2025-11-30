@@ -1,5 +1,5 @@
-# Build stage
-FROM node:18-alpine AS builder
+# Development stage
+FROM node:18-alpine AS development
 
 WORKDIR /app
 
@@ -12,26 +12,11 @@ RUN npm ci
 # Copy all files
 COPY . .
 
-# Build the application
-RUN npm run build
-
-# Production stage
-FROM node:18-alpine AS runner
-
-WORKDIR /app
-
-# Set to production
-ENV NODE_ENV=production
-
-# Copy necessary files from builder
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-
 # Expose port
 EXPOSE 3000
 
 # Set environment variable for port
 ENV PORT 3000
 
-# Start the application
-CMD ["node", "server.js"]
+# Start the development server with hot reload
+CMD ["npm", "run", "dev"]
