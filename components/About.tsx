@@ -33,7 +33,7 @@ export default function About() {
                                 transition={{ duration: 0.8, delay: 0.2 }}
                             >
                                 <p className="text-lg md:text-xl text-light-gray leading-relaxed">
-                                    I am a dedicated college senior at Holy Cross College of Carigara Incorporated, pursuing Bachelor of Science in Computer Science. Consistently recognized on the Dean's List since first year, I am building a solid foundation in web technologies through coursework and practical projects. My background extends from programming into multimedia arts such as layout design, photography, and video editing, skills that enhance my technical capabilities as I continue advancing in web development.
+                                    I am a dedicated college senior at Holy Cross College of Carigara Incorporated, pursuing a Bachelor of Science in Computer Science. I have been on the Dean's List since my first year, building strong skills in web development through my classes and hands-on projects. Beyond programming, I also have experience in multimedia arts, including layout design, and video editing-skills.
                                 </p>
                             </motion.div>
 

@@ -11,7 +11,7 @@ export default function Hero() {
     }, [])
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
             {/* Animated background grid */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
 
@@ -69,7 +69,7 @@ export default function Hero() {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="text-base md:text-lg text-gray-500 mb-12 max-w-2xl mx-auto font-mono"
                     >
-                        Developer • Editor
+                        Web Enthusiast • Editor
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -90,6 +90,17 @@ export default function Hero() {
                             className="px-8 py-4 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                         >
                             View Projects
+                        </a>
+                        <a
+                            href="https://www.canva.com/design/DAG6EsxH-4E/cdpIGLOfu6cP5CBjUpYjhQ/edit?utm_content=DAG6EsxH-4E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-8 py-4 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-2"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Resume
                         </a>
                     </motion.div>
 

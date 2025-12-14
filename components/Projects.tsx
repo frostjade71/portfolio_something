@@ -10,7 +10,16 @@ const projects = [
         description: 'A Thesis project "Developing Educational Games for High School Language Arts: Design Principles and Effectiveness." A web-based platform that helps learners improve English skills through an interactive game, using PHP, CSS, Javascript/Phaser.js, and MySQL.',
         tech: ['Student Platform', 'GWA Ratings', 'Leaderboards'],
         link: 'https://github.com/frostjade71/GameDev-G1',
-        type: 'Thesis Project'
+        type: 'Thesis Project',
+        image: '/img/WW.webp'
+    },
+    {
+        title: 'Leyeco III Systems',
+        description: 'Developed 2 systems and counting in fulfillment of my on-the-job training requirements',
+        tech: ['Student Intern', 'Web Development'],
+        link: 'https://github.com/stars/frostjade71/lists/leyeco-iii',
+        type: 'Intern Project',
+        image: '/img/LeyecoIII.webp'
     },
     {
         title: 'Video Editing',
@@ -59,43 +68,57 @@ export default function Projects() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                                     transition={{ duration: 0.6, delay: index * 0.2 }}
-                                    className="bg-dark-secondary border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 group cursor-pointer hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+                                    className="relative bg-dark-secondary border border-white/10 rounded-2xl p-8 hover:border-white/30 transition-all duration-300 group cursor-pointer hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] overflow-hidden"
                                 >
-                                    {/* Project Type Badge */}
-                                    <div className="flex items-center justify-between mb-4">
-                                        <span className="px-3 py-1 bg-white/5 text-gray-400 text-xs font-mono rounded-full border border-white/10">
-                                            {project.type}
-                                        </span>
-                                        <svg
-                                            className="w-5 h-5 text-gray-400 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                        </svg>
-                                    </div>
+                                    {/* Background Image (if exists) */}
+                                    {project.image && (
+                                        <>
+                                            <div 
+                                                className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+                                                style={{ backgroundImage: `url(${project.image})` }}
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/95 to-dark-bg/80" />
+                                        </>
+                                    )}
 
-                                    {/* Project Title */}
-                                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gray-200 transition-colors">
-                                        {project.title}
-                                    </h3>
-
-                                    {/* Project Description */}
-                                    <p className="text-light-gray mb-6 leading-relaxed">
-                                        {project.description}
-                                    </p>
-
-                                    {/* Tech Stack */}
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.tech.map((tech) => (
-                                            <span
-                                                key={tech}
-                                                className="px-3 py-1 bg-white/5 text-gray-400 text-sm rounded-lg font-mono border border-white/10"
-                                            >
-                                                {tech}
+                                    {/* Content */}
+                                    <div className="relative z-10">
+                                        {/* Project Type Badge */}
+                                        <div className="flex items-center justify-between mb-4">
+                                            <span className="px-3 py-1 bg-white/5 text-gray-400 text-xs font-mono rounded-full border border-white/10">
+                                                {project.type}
                                             </span>
-                                        ))}
+                                            <svg
+                                                className="w-5 h-5 text-gray-400 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </div>
+
+                                        {/* Project Title */}
+                                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gray-200 transition-colors">
+                                            {project.title}
+                                        </h3>
+
+                                        {/* Project Description */}
+                                        <p className="text-light-gray mb-6 leading-relaxed">
+                                            {project.description}
+                                        </p>
+
+                                        {/* Tech Stack */}
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.tech.map((tech) => (
+                                                <span
+                                                    key={tech}
+                                                    className="px-3 py-1 bg-white/5 text-gray-400 text-sm rounded-lg font-mono border border-white/10"
+                                                >
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
                                 </motion.a>
                             ))}

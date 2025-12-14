@@ -6,6 +6,11 @@ export const metadata: Metadata = {
     description: 'Portfolio of Jaderby Peñaranda - Computer Science Senior at HCCCI. Developer, Editor, and Tech Enthusiast.',
     keywords: ['Jaderby Peñaranda', 'Computer Science', 'Developer', 'Portfolio', 'HCCCI'],
     authors: [{ name: 'Jaderby Peñaranda' }],
+    icons: {
+        icon: '/img/j-favicon.svg',
+        shortcut: '/img/j-favicon.svg',
+        apple: '/img/j-favicon.svg',
+    },
     openGraph: {
         title: 'Jaderby Peñaranda | Computer Science Senior',
         description: 'Portfolio of Jaderby Peñaranda - Computer Science Senior at HCCCI',
