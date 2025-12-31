@@ -81,13 +81,13 @@ export default function Hero() {
                     >
                         <a
                             href="#contact"
-                            className="px-8 py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] w-full sm:w-auto"
+                            className="px-4 py-2 sm:px-8 sm:py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] w-full sm:w-auto"
                         >
                             Get In Touch
                         </a>
                         <a
                             href="#projects"
-                            className="px-8 py-4 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+                            className="px-4 py-2 sm:px-8 sm:py-4 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                         >
                             View Projects
                         </a>
@@ -95,7 +95,7 @@ export default function Hero() {
                             href="https://www.canva.com/design/DAG6EsxH-4E/cdpIGLOfu6cP5CBjUpYjhQ/edit?utm_content=DAG6EsxH-4E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-8 py-4 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-2"
+                            className="px-4 py-2 sm:px-8 sm:py-4 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-2"
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
