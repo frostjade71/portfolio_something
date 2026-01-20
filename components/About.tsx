@@ -53,7 +53,41 @@ export default function About() {
                                     <div className="text-sm text-gray-500 font-mono">Projects</div>
                                 </div>
                                 <div className="text-center col-span-2 md:col-span-1">
-                                    <div className="text-3xl md:text-4xl font-bold text-white mb-2">∞</div>
+                                    <div className="flex justify-center items-center mb-2 h-9 md:h-10">
+                                        <motion.svg
+                                            viewBox="0 0 100 50"
+                                            className="w-10 md:w-12 h-auto"
+                                        >
+                                            <defs>
+                                                <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stopColor="#60A5FA" />
+                                                    <stop offset="100%" stopColor="#A78BFA" />
+                                                </linearGradient>
+                                            </defs>
+                                            <motion.path
+                                                d="M50 25 C60 10 90 10 90 25 C90 40 60 40 50 25 C40 10 10 10 10 25 C10 40 40 40 50 25 Z"
+                                                fill="none"
+                                                stroke="white"
+                                                strokeOpacity="0.2"
+                                                strokeWidth="4"
+                                                strokeLinecap="round"
+                                            />
+                                            <motion.path
+                                                d="M50 25 C60 10 90 10 90 25 C90 40 60 40 50 25 C40 10 10 10 10 25 C10 40 40 40 50 25 Z"
+                                                fill="none"
+                                                stroke="url(#infinityGradient)"
+                                                strokeWidth="4"
+                                                strokeLinecap="round"
+                                                initial={{ pathLength: 0 }}
+                                                animate={{ pathLength: 1 }}
+                                                transition={{
+                                                    duration: 3,
+                                                    repeat: Infinity,
+                                                    ease: "linear",
+                                                }}
+                                            />
+                                        </motion.svg>
+                                    </div>
                                     <div className="text-sm text-gray-500 font-mono">Ideas</div>
                                 </div>
                             </motion.div>
