@@ -82,17 +82,8 @@ export default function Header() {
         >
             <nav className="container mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
-                    {/* Logo/Name */}
-                    <motion.a
-                        href="#home"
-                        className="text-xl font-bold font-mono"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                            JP
-                        </span>
-                    </motion.a>
+                    {/* Logo/Name removed */}
+                    <div /> {/* Spacer to maintain layout if needed, or just remove */}
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">

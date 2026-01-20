@@ -14,12 +14,20 @@ const projects = [
         image: '/img/WW.webp'
     },
     {
-        title: 'Leyeco III Systems',
-        description: 'Developed 2 systems and counting in fulfillment of my on-the-job training requirements',
-        tech: ['Student Intern', 'Web Development'],
-        link: 'https://github.com/stars/frostjade71/lists/leyeco-iii',
+        title: 'Leyeco III Forms Management System',
+        description: 'A comprehensive web-based forms and operations management system in fulfillment of the On-the-Job training requirement at LEYECO III (Leyte III Electric Cooperative), enabling efficient online submission, tracking, and management of complaints, meter replacements, and requisition forms.',
+        tech: ['Student Intern', 'Management System', 'Web Development'],
+        link: 'https://github.com/frostjade71/leyeco_forms-frontend',
         type: 'Intern Project',
         image: '/img/LeyecoIII.webp'
+    },
+    {
+        title: 'myHCCCI',
+        description: 'myHCCCI is a social media platform developed as my first CRUD system project, designed to connect students across Holy Cross College of Carigara\'s Science & Technology, Education, and Business Administration departments through posts, updates, and community interaction.',
+        tech: ['CRUD System', 'Social Media', 'Community'],
+        link: 'https://github.com/frostjade71/myhccci',
+        type: 'Personal Project',
+        image: '/img/myhccci.webp'
     },
     {
         title: 'Video Editing',

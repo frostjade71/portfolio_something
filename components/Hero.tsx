@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
+import { TypeAnimation } from 'react-type-animation'
+
 export default function Hero() {
     const [mounted, setMounted] = useState(false)
 
@@ -19,7 +21,7 @@ export default function Hero() {
             <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
             <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-6 relative z-10 -mt-40">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
@@ -36,7 +38,7 @@ export default function Hero() {
                         <img
                             src="/img/IMG_202511.png"
                             alt="Profile"
-                            className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white/20 shadow-2xl mx-auto object-cover"
+                            className="w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-white/20 shadow-2xl mx-auto object-cover"
                         />
                     </motion.div>
 
@@ -45,31 +47,31 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
+                        className="text-4xl md:text-6xl lg:text-7xl font-bold mb-1 tracking-tight h-[1.2em]"
                     >
-                        <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-                            Jaderby Peñaranda
-                        </span>
+                        <TypeAnimation
+                            sequence={[
+                                "Hello, I'm Frost",
+                                1000,
+                                "Hello, I'm Jaderby",
+                                3000
+                            ]}
+                            wrapper="span"
+                            speed={25}
+                            repeat={Infinity}
+                            className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent"
+                            cursor={true}
+                        />
                     </motion.h1>
-
-                    {/* Title */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-xl md:text-2xl lg:text-3xl text-light-gray mb-8 font-light"
-                    >
-                        Computer Science Senior @ HCCCI
-                    </motion.p>
 
                     {/* Subtitle */}
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
-                        transition={{ duration: 0.8, delay: 0.6 }}
-                        className="text-base md:text-lg text-gray-500 mb-12 max-w-2xl mx-auto font-mono"
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-16 max-w-2xl mx-auto font-light"
                     >
-                        Web Enthusiast • Editor
+                        Web Enthusiast and Developer • Editor
                     </motion.p>
 
                     {/* CTA Buttons */}
@@ -77,50 +79,55 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
                         transition={{ duration: 0.8, delay: 0.8 }}
-                        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                        className="flex flex-col items-center gap-4"
                     >
-                        <a
-                            href="#contact"
-                            className="px-4 py-2 sm:px-8 sm:py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] w-full sm:w-auto"
-                        >
-                            Get In Touch
-                        </a>
                         <a
                             href="#projects"
-                            className="px-4 py-2 sm:px-8 sm:py-4 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+                            className="px-3.5 py-2 sm:px-8 sm:py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] w-auto sm:w-auto"
                         >
-                            View Projects
+                            View My Work
                         </a>
-                        <a
-                            href="https://www.canva.com/design/DAG6EsxH-4E/cdpIGLOfu6cP5CBjUpYjhQ/edit?utm_content=DAG6EsxH-4E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2 sm:px-8 sm:py-4 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 w-full sm:w-auto flex items-center justify-center gap-2"
-                        >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            Resume
-                        </a>
-                    </motion.div>
-
-                    {/* Scroll Indicator */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: mounted ? 1 : 0 }}
-                        transition={{ duration: 0.8, delay: 1.2 }}
-                        className="mt-12"
-                    >
-                        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center p-2 mx-auto">
-                            <motion.div
-                                animate={{ y: [0, 12, 0] }}
-                                transition={{ duration: 1.5, repeat: Infinity }}
-                                className="w-1.5 h-1.5 bg-white rounded-full"
-                            ></motion.div>
+                        <div className="flex flex-row gap-2 sm:gap-4 justify-center items-center">
+                            <a
+                                href="#contact"
+                                className="px-3 py-2 sm:px-6 sm:py-3 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 w-auto sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base"
+                            >
+                                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                Get In Touch
+                            </a>
+                            <a
+                                href="https://www.canva.com/design/DAG6EsxH-4E/cdpIGLOfu6cP5CBjUpYjhQ/edit?utm_content=DAG6EsxH-4E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-3 py-2 sm:px-6 sm:py-3 border border-white/20 text-white font-medium rounded-lg hover:bg-white/5 hover:border-white/40 transition-all duration-300 hover:scale-105 w-auto sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base"
+                            >
+                                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Resume
+                            </a>
                         </div>
                     </motion.div>
                 </motion.div>
             </div>
+
+            {/* Scroll Indicator - Bottom Relative to Section */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: mounted ? 1 : 0 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2"
+            >
+                <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center p-2">
+                    <motion.div
+                        animate={{ y: [0, 12, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                        className="w-1.5 h-1.5 bg-white rounded-full"
+                    ></motion.div>
+                </div>
+            </motion.div>
         </section>
     )
 }

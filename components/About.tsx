@@ -32,7 +32,7 @@ export default function About() {
                                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
                             >
-                                <p className="text-lg md:text-xl text-light-gray leading-relaxed">
+                                <p className="text-base md:text-xl text-light-gray leading-relaxed">
                                     I am a dedicated college senior at Holy Cross College of Carigara Incorporated, pursuing a Bachelor of Science in Computer Science. I have been on the Dean's List since my first year, building strong skills in web development through my classes and hands-on projects. Beyond programming, I also have experience in multimedia arts, including layout design, and video editing-skills.
                                 </p>
                             </motion.div>
