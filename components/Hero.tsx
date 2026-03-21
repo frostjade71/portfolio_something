@@ -71,7 +71,7 @@ export default function Hero() {
                             transition={{ duration: 0.8, delay: 0.35 }}
                             className="mt-4 md:mt-5 text-[13px] md:text-[15px] text-text-secondary leading-relaxed max-w-md"
                         >
-                            Hi, I&apos;m Jaderby, Welcome to my corner of the web. I love building and designing websites and web systems using modern technologies.
+                            Hi, I&apos;m <b>Jaderby</b>, welcome to my corner of the web! I love building and designing websites, and editing layouts, photos, and videos.
                         </motion.p>
                     </div>
 
