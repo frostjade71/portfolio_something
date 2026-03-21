@@ -60,15 +60,15 @@ export default function LogoMarquee() {
                         {marqueeItems.map((brand, index) => (
                             <div
                                 key={`${brand.name}-${index}`}
-                                className="flex-shrink-0 flex items-center gap-2.5 mx-6 md:mx-8"
+                                className="group flex-shrink-0 flex items-center gap-2.5 mx-6 md:mx-8"
                             >
                                 <img
                                     src={`https://skillicons.dev/icons?i=${brand.icon}&theme=dark`}
                                     alt={brand.name}
-                                    className="w-7 h-7 opacity-50"
+                                    className="w-7 h-7 opacity-50 group-hover:opacity-100 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300"
                                     loading="lazy"
                                 />
-                                <span className="text-sm text-text-muted font-medium whitespace-nowrap">
+                                <span className="text-sm text-text-muted group-hover:text-white font-medium whitespace-nowrap transition-colors duration-300">
                                     {brand.name}
                                 </span>
                             </div>

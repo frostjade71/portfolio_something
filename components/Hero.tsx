@@ -11,7 +11,7 @@ export default function Hero() {
     }, [])
 
     return (
-        <section id="home" className="pt-24 pb-10 px-4 md:px-8 lg:px-12">
+        <section id="home" className="pt-24 md:pt-36 lg:pt-32 pb-6 md:pb-10 px-4 md:px-8 lg:px-12">
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 30 }}
@@ -33,7 +33,7 @@ export default function Hero() {
                             href="https://github.com/frostjade71"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-muted hover:text-white transition-colors"
+                            className="text-text-muted hover:text-white hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
                             aria-label="GitHub"
                         >
                             <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24">
@@ -44,7 +44,7 @@ export default function Hero() {
                             href="https://www.linkedin.com/in/jaderby-pe%C3%B1aranda-830670359"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-muted hover:text-white transition-colors"
+                            className="text-text-muted hover:text-white hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] transition-all duration-300"
                             aria-label="LinkedIn"
                         >
                             <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-bold leading-[1.15] tracking-tight text-white mb-2"
+                            className="text-2xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-white mb-2"
                         >
                             Web Enthusiast and Developer driven to build web systems that make users&apos; lives easier.
                         </motion.h1>
@@ -69,7 +69,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
                             transition={{ duration: 0.8, delay: 0.35 }}
-                            className="mt-5 text-sm md:text-[15px] text-text-secondary leading-relaxed max-w-md"
+                            className="mt-4 md:mt-5 text-[13px] md:text-[15px] text-text-secondary leading-relaxed max-w-md"
                         >
                             Hi, I&apos;m Jaderby, Welcome to my corner of the web. I love building and designing websites and web systems using modern technologies.
                         </motion.p>
