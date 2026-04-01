@@ -6,6 +6,14 @@ import { useRef } from 'react'
 
 const projects = [
     {
+        title: 'Celestial Network',
+        tech: ['Landing Page', 'Minecraft', 'Discord'],
+        description: 'A Minecraft community landing page designed for Celestial Network',
+        liveLink: 'https://celestial-network.vercel.app/',
+        repoLink: 'https://github.com/frostjade71/celestial_network',
+        image: '/img/celestial.png' as string | null,
+    },
+    {
         title: 'Git Glyph',
         tech: ['Summary Cards', 'TypeScript', 'React'],
         description: 'A GitHub Summary Card Generator designed for developers to showcase their profiles with style',

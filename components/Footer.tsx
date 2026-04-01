@@ -70,7 +70,7 @@ export default function Footer() {
 
                 {/* Bottom line */}
                 <div className="flex flex-col sm:flex-row items-center justify-between mt-12 md:mt-16 pt-8 border-t border-card-border/50 text-[8px] md:text-[9px] text-text-dim uppercase tracking-[0.25em] font-medium gap-4">
-                    <p>© {new Date().getFullYear()} FROST — ALL RIGHTS RESERVED</p>
+                    <p>© {new Date().getFullYear()} JADERBYPEÑARANDA — ALL RIGHTS RESERVED</p>
                     <p>Built with Next.js & Tailwind CSS</p>
                 </div>
             </div>
