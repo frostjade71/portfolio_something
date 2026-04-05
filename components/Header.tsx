@@ -119,7 +119,7 @@ export default function Header() {
                 
                 {/* Different button style for Resume */}
                 <a
-                    href="https://www.canva.com/design/DAG6EsxH-4E/cdpIGLOfu6cP5CBjUpYjhQ/edit?utm_content=DAG6EsxH-4E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                    href="/Jaderby Peñaranda - Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="ml-1 md:ml-2 px-4 md:px-7 py-2 md:py-2.5 bg-white text-black text-[9px] md:text-[11px] font-bold rounded-full hover:bg-[#e5e5e5] hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] active:translate-y-0 transition-all duration-300 uppercase tracking-[0.12em] md:tracking-[0.15em] shadow-[0_4px_12px_rgba(255,255,255,0.1)]"

@@ -56,21 +56,31 @@ export default function AboutSection() {
                             </motion.p>
 
                             <motion.a
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                initial={{ opacity: 0 }}
+                                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                                 transition={{ duration: 0.6, delay: 0.5 }}
                                 href="#projects"
                                 className="group inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-all duration-300"
                             >
-                                Browse My Work
-                                <svg
-                                    className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                <svg className="w-4 h-4 flex-shrink-0 text-white/60 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                 </svg>
+                                <motion.span
+                                    initial={{ width: 0, opacity: 0 }}
+                                    animate={isInView ? { width: 'auto', opacity: 1 } : { width: 0, opacity: 0 }}
+                                    transition={{ duration: 1.2, delay: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                                    className="overflow-hidden whitespace-nowrap flex items-center gap-2"
+                                >
+                                    Browse My Work
+                                    <svg
+                                        className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </motion.span>
                             </motion.a>
                         </div>
                     </div>

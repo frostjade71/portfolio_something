@@ -8,7 +8,7 @@ const projects = [
     {
         title: 'Celestial Network',
         tech: ['Landing Page', 'Minecraft', 'Discord'],
-        description: 'A Minecraft community landing page designed for Celestial Network',
+        description: 'A Minecraft Community Landing Page designed for Celestial Network',
         liveLink: 'https://celestial-network.vercel.app/',
         repoLink: 'https://github.com/frostjade71/celestial_network',
         image: '/img/celestial.png' as string | null,

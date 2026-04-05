@@ -10,6 +10,28 @@ export default function Hero() {
         setMounted(true)
     }, [])
 
+    const [displayedText, setDisplayedText] = useState('')
+    const heroTitle = "Web Enthusiast and Developer driven to build web systems that make users' lives easier."
+
+    useEffect(() => {
+        setMounted(true)
+        
+        const startTimeout = setTimeout(() => {
+            let i = 0
+            const typingInterval = setInterval(() => {
+                if (i < heroTitle.length) {
+                    setDisplayedText(heroTitle.slice(0, i + 1))
+                    i++
+                } else {
+                    clearInterval(typingInterval)
+                }
+            }, 30)
+            return () => clearInterval(typingInterval)
+        }, 500)
+
+        return () => clearTimeout(startTimeout)
+    }, [])
+
     return (
         <section id="home" className="pt-24 md:pt-36 lg:pt-32 pb-6 md:pb-10 px-4 md:px-8 lg:px-12">
             <motion.div
@@ -53,17 +75,28 @@ export default function Hero() {
                         </a>
                     </div>
                 </div>
-
+ 
                 {/* Main hero content */}
                 <div className="grid grid-cols-1 md:grid-cols-[1fr,auto] gap-6 px-8 md:px-12 pt-10 pb-12">
                     <div className="flex flex-col justify-end">
                         <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
                             className="text-2xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-white mb-2"
                         >
-                            Web Enthusiast and Developer driven to build web systems that make users&apos; lives easier.
+                            {displayedText}
+                            <motion.span
+                                initial={{ opacity: 1 }}
+                                animate={{ opacity: [1, 1, 0, 0] }}
+                                transition={{
+                                    duration: 1.2,
+                                    repeat: Infinity,
+                                    times: [0, 0.5, 0.5, 1],
+                                    ease: "linear"
+                                }}
+                                className="inline-block w-[3px] h-[0.9em] bg-white ml-2 align-middle"
+                            />
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
