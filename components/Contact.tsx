@@ -2,131 +2,214 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useState, useRef } from 'react'
+import ContactModal from './ContactModal'
 
-const contactLinks = [
+const services = [
     {
-        name: 'Email',
-        value: 'jaderbypenaranda@gmail.com',
-        href: 'mailto:jaderbypenaranda@gmail.com',
+        name: 'Web Applications',
         icon: (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-        )
+        ),
+        price: 'Custom Quote',
+        description:
+            'Building interactive web systems and applications that solve real-world problems and make everyday workflows easier.',
     },
     {
-        name: 'GitHub',
-        value: '@frostjade71',
-        href: 'https://github.com/frostjade71',
+        name: 'Static Websites',
         icon: (
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+            <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
             </svg>
-        )
+        ),
+        price: 'Custom Quote',
+        description:
+            'Designing and building fast, responsive, and visually appealing websites that clearly communicate your brand\'s message..',
     },
-    {
-        name: 'LinkedIn',
-        value: 'Jaderby Peñaranda',
-        href: 'https://www.linkedin.com/in/jaderby-peñaranda-830670359',
-        icon: (
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-        )
-    },
-    {
-        name: 'PayPal',
-        value: 'Support My Work',
-        href: 'https://www.paypal.com/paypalme/1eonardofr',
-        icon: (
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z" />
-            </svg>
-        )
-    }
+]
+
+const processSteps = [
+    { number: '01', title: 'Concept', description: 'Defining the core idea and strategy.' },
+    { number: '02', title: 'Design', description: 'Crafting the visual and user experience.' },
+    { number: '03', title: 'Implementation', description: 'Building with precision and speed.' },
 ]
 
 export default function Contact() {
+    const [isModalOpen, setIsModalOpen] = useState(false)
     const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, margin: '-100px' })
+    const isInView = useInView(ref, { once: true, margin: '-10%' })
 
     return (
-        <section id="contact" className="min-h-screen flex items-center py-20 relative">
-            <div className="container mx-auto px-6">
-                <motion.div
-                    ref={ref}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    {/* Section Title */}
-                    <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-                        <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                            Get In Touch
-                        </span>
-                    </h2>
-
-                    <div className="max-w-4xl mx-auto">
-                        {/* Intro Text */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-center text-lg md:text-xl text-light-gray mb-12 max-w-2xl mx-auto"
-                        >
-                            I'm always open to new opportunities, collaborations, or just a friendly chat.
-                            Feel free to reach out through any of these platforms!
-                        </motion.p>
-
-                        {/* Contact Links Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {contactLinks.map((link, index) => (
-                                <motion.a
-                                    key={link.name}
-                                    href={link.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                                    className="bg-dark-secondary border border-white/10 rounded-xl p-6 hover:border-white/30 hover:bg-dark-accent transition-all duration-300 group flex items-center gap-4 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"
-                                >
-                                    <div className="text-light-gray group-hover:text-white transition-colors">
-                                        {link.icon}
-                                    </div>
-                                    <div className="flex-1">
-                                        <div className="text-sm text-gray-500 font-mono mb-1">{link.name}</div>
-                                        <div className="text-white font-medium group-hover:text-gray-200 transition-colors">
-                                            {link.value}
-                                        </div>
-                                    </div>
-                                    <svg
-                                        className="w-5 h-5 text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all duration-300"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </motion.a>
-                            ))}
-                        </div>
-
-                        {/* Additional CTA */}
+        <section ref={ref} id="contact" className="py-24 px-4 md:px-8 lg:px-12 bg-site-bg scroll-mt-32">
+            <div className="max-w-[1200px] mx-auto">
+                <div className="flex flex-col lg:flex-row gap-16">
+                    {/* Left side - Services */}
+                    <div className="flex-1">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                            transition={{ duration: 0.6, delay: 0.8 }}
-                            className="text-center mt-12"
+                            transition={{ duration: 0.6 }}
+                            className="flex flex-col items-center text-center md:flex-row md:items-center md:text-left gap-4 md:gap-6 mb-8 md:mb-12"
                         >
-                            <p className="text-gray-500 font-mono text-sm">
-                                Let's build something amazing together ✨
-                            </p>
+                            <svg className="w-8 h-8 md:w-12 md:h-12 text-white/50 flex-shrink-0 animate-pulse-slow" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C12 0 12.5 10.5 13.5 11.5C14.5 12.5 24 12 24 12C24 12 14.5 12.5 13.5 13.5C12.5 14.5 12 24 12 24C12 24 11.5 14.5 10.5 13.5C9.5 12.5 0 12 0 12C0 12 9.5 11.5 10.5 10.5C11.5 9.5 12 0 12 0Z" />
+                            </svg>
+                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                                How can I help <span className="text-white">you?</span>
+                            </h2>
+                        </motion.div>
+
+                        <div className="space-y-6">
+                            {services.map((service, index) => (
+                                <motion.div
+                                    key={service.name}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                    transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
+                                    className="p-6 md:p-8 rounded-2xl bg-card-bg border border-card-border hover:border-white/20 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 group"
+                                >
+                                    <div className="flex justify-between items-start mb-4">
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-text-dim/80 group-hover:text-white transition-colors duration-300">
+                                                {service.icon}
+                                            </span>
+                                            <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-white transition-colors uppercase tracking-tight">
+                                                {service.name}
+                                            </h3>
+                                        </div>
+                                        <span className="text-[9px] md:text-[10px] font-bold text-text-dim uppercase tracking-widest px-2 py-1 bg-white/5 rounded-md border border-white/5">
+                                            {service.price}
+                                        </span>
+                                    </div>
+                                    <p className="text-[13px] md:text-sm text-text-muted leading-relaxed max-w-md">
+                                        {service.description}
+                                    </p>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* CTA Button */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                            transition={{ duration: 0.6, delay: 0.5 }}
+                            className="mt-12 flex justify-center md:justify-start"
+                        >
+                            <button
+                                onClick={() => setIsModalOpen(true)}
+                                className="group inline-flex items-center gap-2.5 px-6 md:px-8 py-3 md:py-4 bg-white text-black font-bold rounded-full hover:bg-white/90 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,255,255,0.1)] active:translate-y-0 transition-all duration-300 uppercase tracking-widest text-[11px] md:text-xs"
+                            >
+                                <svg className="w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0 text-black/50 group-hover:text-black transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                                </svg>
+                                Get In Touch
+                                <svg
+                                    className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform duration-300"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2.5}
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                    />
+                                </svg>
+                            </button>
                         </motion.div>
                     </div>
-                </motion.div>
+
+                    {/* Right side - Process & Availability Card */}
+                    <div className="lg:w-[420px]">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="sticky top-24 p-8 md:p-10 rounded-5xl bg-card-bg/60 backdrop-blur-xl border border-white/5 overflow-hidden group/card shadow-2xl relative"
+                        >
+                            {/* Animated Background Mesh */}
+                            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/[0.03] rounded-full blur-3xl pointer-events-none group-hover/card:bg-white/[0.05] transition-colors duration-700" />
+                            
+                            {/* Availability Tag */}
+                            <div className="relative inline-flex items-center gap-3 mb-12 px-4 py-2 bg-black/40 border border-white/5 rounded-full shadow-inner">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500/40"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
+                                </span>
+                                <span className="text-[10px] font-bold text-green-400 uppercase tracking-[0.2em] leading-none">
+                                    Available Now
+                                </span>
+                            </div>
+
+                            <div className="flex items-center gap-4 mb-10">
+                                <span className="p-2.5 rounded-xl bg-white/5 border border-white/5 text-text-dim group-hover/card:text-white transition-colors duration-500">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                                    </svg>
+                                </span>
+                                <h3 className="text-2xl font-bold text-white tracking-tight uppercase">Workflow</h3>
+                            </div>
+                            
+                            <div className="relative space-y-12">
+                                {/* Vertical Timeline Line */}
+                                <div className="absolute left-[22px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-white/10 via-white/10 to-transparent" />
+
+                                {processSteps.map((step, idx) => (
+                                    <motion.div 
+                                        key={step.number} 
+                                        className="relative flex gap-6 group/item"
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                                        transition={{ duration: 0.5, delay: 0.6 + (idx * 0.1) }}
+                                    >
+                                        <div className="relative z-10 flex flex-col items-center">
+                                            <div className="w-[46px] h-[46px] flex items-center justify-center rounded-xl bg-black border border-white/10 group-hover/item:border-white/30 transition-all duration-300 group-hover/item:shadow-[0_0_15px_rgba(255,255,255,0.03)]">
+                                                <span className="text-[11px] font-black text-white/40 group-hover/item:text-white transition-colors">
+                                                    {step.number}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="flex-1 pt-0.5">
+                                            <h4 className="flex items-center gap-2 text-xs font-black text-white uppercase tracking-[0.15em] mb-2 group-hover/item:text-white transition-colors">
+                                                {step.title}
+                                                {idx === 0 && (
+                                                    <svg className="w-3.5 h-3.5 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.456-2.455L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
+                                                    </svg>
+                                                )}
+                                                {idx === 1 && (
+                                                    <svg className="w-3.5 h-3.5 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-3.012 3.011 3.375 3.375 0 008.195-1.008 3.375 3.375 0 006.115-3.151C20.407 14.204 21 12.673 21 11.026c0-4.432-4.03-8.026-9-8.026s-9 3.594-9 8.026c0 1.637.545 3.161 1.464 4.398l.819.527a2.25 2.25 0 011.01 2.923" />
+                                                    </svg>
+                                                )}
+                                                {idx === 2 && (
+                                                    <svg className="w-3.5 h-3.5 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758" />
+                                                    </svg>
+                                                )}
+                                            </h4>
+                                            <p className="text-[13px] text-text-muted leading-relaxed max-w-[240px]">
+                                                {step.description}
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            <div className="mt-14 pt-8 border-t border-white/5">
+                                <p className="text-[10px] text-text-dim font-bold uppercase tracking-[0.2em] leading-normal">
+                                    Working on modern solutions for businesses and individuals worldwide.
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
             </div>
+
+            <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </section>
     )
 }
