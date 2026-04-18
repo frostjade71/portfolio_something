@@ -9,7 +9,7 @@ export default function AboutSection() {
     const isInView = useInView(ref, { once: true, margin: '-80px' })
 
     return (
-        <section id="about" className="py-10 px-4 md:px-8 lg:px-12">
+        <section id="about" className="py-10 px-4 md:px-8 lg:px-12 scroll-mt-32">
             <motion.div
                 ref={ref}
                 initial={{ opacity: 0, y: 40 }}
@@ -17,7 +17,7 @@ export default function AboutSection() {
                 transition={{ duration: 0.8 }}
                 className="max-w-[1200px] mx-auto"
             >
-                <div className="bg-card-bg border border-card-border rounded-[2rem] p-6 md:p-14 lg:p-16">
+                <div className="bg-card-bg border border-card-border rounded-4xl p-6 md:p-14 lg:p-16">
                     <div className="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-10 md:gap-14 items-center">
                         {/* Avatar */}
                         <motion.div
@@ -26,7 +26,7 @@ export default function AboutSection() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="flex justify-center md:justify-start"
                         >
-                            <div className="w-[150px] h-[170px] md:w-[220px] md:h-[250px] rounded-2xl md:rounded-3xl overflow-hidden">
+                            <div className="w-[150px] h-[170px] md:w-[220px] md:h-[250px] rounded-xl md:rounded-2xl overflow-hidden">
                                 <img
                                     src="/img/deanslister.jpg"
                                     alt="Jaderby"
@@ -52,7 +52,7 @@ export default function AboutSection() {
                                 transition={{ duration: 0.6, delay: 0.4 }}
                                 className="text-[13px] md:text-[14px] text-text-secondary leading-relaxed mb-6 md:mb-8 max-w-lg"
                             >
-                                I am a dedicated college senior at Holy Cross College of Carigara Incorporated, pursuing a Bachelor of Science in Computer Science. I have been on the Dean&apos;s List since my first year, building strong skills in web development through my classes and hands-on projects. Beyond programming, I also have experience in multimedia arts, including layout design, and video editing-skills.
+                                I am a dedicated graduate of Holy Cross College of Carigara Incorporated with a Bachelor of Science in Computer Science. Having been a consistent Dean&apos;s Lister throughout my academic years, I have built strong skills in web development through my studies and hands-on projects. Beyond programming, I also have experience in multimedia arts, including layout design and video editing.
                             </motion.p>
 
                             <motion.a

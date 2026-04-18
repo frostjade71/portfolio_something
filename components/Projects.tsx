@@ -6,6 +6,14 @@ import { useRef } from 'react'
 
 const projects = [
     {
+        title: 'Realm Explorer',
+        tech: ['Community Platform', 'Minecraft', 'Directory'],
+        description: 'A Minecraft Server & Realm Discovery Platform Website App',
+        liveLink: 'https://www.realmexplorer.xyz/',
+        repoLink: 'https://github.com/frostjade71/RealmExplorer',
+        image: '/img/realmexplorer.png' as string | null,
+    },
+    {
         title: 'Celestial Network',
         tech: ['Landing Page', 'Minecraft', 'Discord'],
         description: 'A Minecraft Community Landing Page designed for Celestial Network',
@@ -76,7 +84,7 @@ export default function Projects() {
     const isInView = useInView(ref, { once: true, margin: '-10%' })
 
     return (
-        <section id="projects" className="py-24 px-4 md:px-8 lg:px-12">
+        <section id="projects" className="py-24 px-4 md:px-8 lg:px-12 scroll-mt-32">
             <div className="max-w-[1200px] mx-auto">
                 <div className="mb-16">
                     <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-text-dim mb-4">
@@ -137,7 +145,7 @@ function ProjectCard({
             initial={{ opacity: 0, y: 25 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="group block bg-card-bg border border-card-border rounded-[1.75rem] overflow-hidden hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-white/[0.05] transition-all duration-500 flex flex-col h-full"
+            className="group block bg-card-bg border border-card-border rounded-3xl overflow-hidden hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-white/[0.02] transition-all duration-500 flex flex-col h-full"
         >
             {/* Screenshot area */}
             {project.image ? (
@@ -168,7 +176,7 @@ function ProjectCard({
                         </span>
                     ))}
                 </div>
-                <h3 className="text-base md:text-lg font-semibold text-white mb-2 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-all duration-300">
+                <h3 className="text-base md:text-lg font-semibold text-white mb-2 group-hover:text-white group-hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-all duration-300">
                     {project.title}
                 </h3>
                 <p className="text-[13px] md:text-sm text-text-muted leading-relaxed mb-6">

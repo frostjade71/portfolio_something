@@ -33,12 +33,12 @@ export default function Hero() {
     }, [])
 
     return (
-        <section id="home" className="pt-24 md:pt-36 lg:pt-32 pb-6 md:pb-10 px-4 md:px-8 lg:px-12">
+        <section id="home" className="pt-24 md:pt-36 lg:pt-32 pb-6 md:pb-10 px-4 md:px-8 lg:px-12 scroll-mt-32">
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 30 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0, 1] }}
-                className="max-w-[1200px] mx-auto bg-card-bg border border-card-border rounded-[2rem] overflow-hidden relative"
+                className="max-w-[1200px] mx-auto bg-card-bg border border-card-border rounded-4xl overflow-hidden relative"
             >
                 {/* Top navigation bar */}
                 <div className="flex items-center justify-between px-8 md:px-12 pt-8">
@@ -116,7 +116,7 @@ export default function Hero() {
                         className="hidden md:flex items-end justify-end"
                     >
                         <div className="relative">
-                            <div className="w-[220px] lg:w-[260px] h-[260px] lg:h-[300px] rounded-3xl overflow-hidden">
+                            <div className="w-[220px] lg:w-[260px] h-[260px] lg:h-[300px] rounded-2xl overflow-hidden">
                                 <img
                                     src="/img/IMG_202511.png"
                                     alt="Jaderby Peñaranda"

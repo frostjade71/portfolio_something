@@ -29,9 +29,10 @@ const config: Config = {
                 'marquee-reverse': 'marquee-reverse 40s linear infinite',
             },
             borderRadius: {
-                '2xl': '1rem',
-                '3xl': '1.5rem',
-                '4xl': '2rem',
+                '2xl': '0.75rem',
+                '3xl': '1rem',
+                '4xl': '1.25rem',
+                '5xl': '1.5rem',
             },
         },
     },

@@ -120,7 +120,7 @@ export default function FeaturedProjects() {
 
 function ProjectCard({ project }: { project: typeof featuredProjects[0] }) {
     return (
-        <div className="w-[260px] md:w-[350px] shrink-0 bg-card-bg border border-card-border rounded-[1.75rem] md:rounded-[2rem] p-6 md:p-8 transition-all duration-500 hover:border-white/30 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-white/[0.05] group relative overflow-hidden flex flex-col">
+        <div className="w-[260px] md:w-[350px] shrink-0 bg-card-bg border border-card-border rounded-3xl md:rounded-4xl p-6 md:p-8 transition-all duration-500 hover:border-white/30 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-white/[0.02] group relative overflow-hidden flex flex-col">
             <div className="relative z-10 flex flex-col h-full flex-grow">
                 <div className="flex items-center gap-1.5 mb-4 md:mb-6 flex-wrap">
                     {project.tech.map((tech) => (
@@ -132,7 +132,7 @@ function ProjectCard({ project }: { project: typeof featuredProjects[0] }) {
                         </span>
                     ))}
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-all duration-300 leading-tight">
+                <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3 group-hover:text-white group-hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-all duration-300 leading-tight">
                     {project.title}
                 </h3>
                 <p className="text-[11px] md:text-xs text-text-muted leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity mb-4 md:mb-5">
@@ -168,7 +168,7 @@ function ProjectCard({ project }: { project: typeof featuredProjects[0] }) {
                 </div>
 
                 {/* Preview image */}
-                <div className="aspect-[16/9] rounded-xl bg-white/[0.02] border border-white/5 overflow-hidden relative mt-auto">
+                <div className="aspect-[16/9] rounded-lg bg-white/[0.02] border border-white/5 overflow-hidden relative mt-auto">
                     {project.image ? (
                         <img
                             src={project.image}
@@ -187,7 +187,7 @@ function ProjectCard({ project }: { project: typeof featuredProjects[0] }) {
             </div>
             
             {/* Subtle corner glow */}
-            <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-white/[0.02] rounded-full blur-3xl pointer-events-none group-hover:bg-white/[0.06] group-hover:blur-2xl transition-all duration-700" />
+            <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-white/[0.02] rounded-full blur-3xl pointer-events-none group-hover:bg-white/[0.03] group-hover:blur-3xl transition-all duration-700" />
         </div>
     )
 }

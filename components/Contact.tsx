@@ -42,7 +42,7 @@ export default function Contact() {
     const isInView = useInView(ref, { once: true, margin: '-10%' })
 
     return (
-        <section ref={ref} id="contact" className="py-24 px-4 md:px-8 lg:px-12 bg-site-bg">
+        <section ref={ref} id="contact" className="py-24 px-4 md:px-8 lg:px-12 bg-site-bg scroll-mt-32">
             <div className="max-w-[1200px] mx-auto">
                 <div className="flex flex-col lg:flex-row gap-16">
                     {/* Left side - Services */}
@@ -68,7 +68,7 @@ export default function Contact() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                                     transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
-                                    className="p-6 md:p-8 rounded-3xl bg-card-bg border border-card-border hover:border-white/20 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 group"
+                                    className="p-6 md:p-8 rounded-2xl bg-card-bg border border-card-border hover:border-white/20 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 group"
                                 >
                                     <div className="flex justify-between items-start mb-4">
                                         <div className="flex items-center gap-3">
@@ -99,7 +99,7 @@ export default function Contact() {
                         >
                             <button
                                 onClick={() => setIsModalOpen(true)}
-                                className="group inline-flex items-center gap-2.5 px-6 md:px-8 py-3 md:py-4 bg-white text-black font-bold rounded-full hover:bg-white/90 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] active:translate-y-0 transition-all duration-300 uppercase tracking-widest text-[11px] md:text-xs"
+                                className="group inline-flex items-center gap-2.5 px-6 md:px-8 py-3 md:py-4 bg-white text-black font-bold rounded-full hover:bg-white/90 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,255,255,0.1)] active:translate-y-0 transition-all duration-300 uppercase tracking-widest text-[11px] md:text-xs"
                             >
                                 <svg className="w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0 text-black/50 group-hover:text-black transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -128,7 +128,7 @@ export default function Contact() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="sticky top-24 p-8 md:p-10 rounded-[3rem] bg-card-bg/60 backdrop-blur-xl border border-white/5 overflow-hidden group/card shadow-2xl relative"
+                            className="sticky top-24 p-8 md:p-10 rounded-5xl bg-card-bg/60 backdrop-blur-xl border border-white/5 overflow-hidden group/card shadow-2xl relative"
                         >
                             {/* Animated Background Mesh */}
                             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/[0.03] rounded-full blur-3xl pointer-events-none group-hover/card:bg-white/[0.05] transition-colors duration-700" />
@@ -166,7 +166,7 @@ export default function Contact() {
                                         transition={{ duration: 0.5, delay: 0.6 + (idx * 0.1) }}
                                     >
                                         <div className="relative z-10 flex flex-col items-center">
-                                            <div className="w-[46px] h-[46px] flex items-center justify-center rounded-2xl bg-black border border-white/10 group-hover/item:border-white/30 transition-all duration-300 group-hover/item:shadow-[0_0_20px_rgba(255,255,255,0.08)]">
+                                            <div className="w-[46px] h-[46px] flex items-center justify-center rounded-xl bg-black border border-white/10 group-hover/item:border-white/30 transition-all duration-300 group-hover/item:shadow-[0_0_15px_rgba(255,255,255,0.03)]">
                                                 <span className="text-[11px] font-black text-white/40 group-hover/item:text-white transition-colors">
                                                     {step.number}
                                                 </span>

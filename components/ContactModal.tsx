@@ -130,7 +130,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                         onClick={() => setActiveContact(null)}
-                        className="relative w-[92vw] md:w-full max-w-4xl max-h-[90vh] bg-[#0d0d0d] border border-white/10 rounded-[2rem] md:rounded-[2.5rem] overflow-y-auto md:overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row z-10 custom-scrollbar"
+                        className="relative w-[92vw] md:w-full max-w-4xl max-h-[90vh] bg-[#0d0d0d] border border-white/10 rounded-4xl md:rounded-5xl overflow-y-auto md:overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row z-10 custom-scrollbar"
                     >
                         {/* Close Button */}
                         <button
@@ -146,7 +146,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         {/* Left Side: Contact Information (3D Tilt Card) */}
                         <div className="flex-1 p-5 md:p-10 pt-6 md:pt-20 relative flex flex-col justify-start overflow-visible md:overflow-hidden border-b md:border-b-0 md:border-r border-white/5 bg-gradient-to-br from-[#121212] to-[#080808] z-20 md:z-auto">
                             {/* Clipped background elements container */}
-                            <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-t-[2rem] md:rounded-none">
+                            <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-t-4xl md:rounded-none">
                                 {/* Decorative background glow */}
                                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.03)_0%,transparent_50%)]" />
                                 {/* Decorative element */}
@@ -172,7 +172,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                 <div className="hidden md:flex flex-col space-y-8" style={{ transform: "translateZ(30px)" }}>
                                     {contactMethods.map((method) => (
                                         <div key={method.id} className="flex items-start gap-4 group/item cursor-default">
-                                            <div className="w-8 h-8 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center flex-shrink-0 text-white group-hover/item:border-white/30 group-hover/item:bg-white/10 transition-all duration-500 shadow-xl">
+                                            <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center flex-shrink-0 text-white group-hover/item:border-white/30 group-hover/item:bg-white/10 transition-all duration-500 shadow-xl">
                                                 {method.icon}
                                             </div>
                                             <div>
@@ -197,7 +197,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                         e.stopPropagation();
                                                         setActiveContact(activeContact === method.id ? null : method.id);
                                                     }}
-                                                    className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-300 relative z-30 ${
+                                                    className={`w-12 h-12 rounded-lg flex items-center justify-center border transition-all duration-300 relative z-30 ${
                                                         activeContact === method.id 
                                                         ? 'bg-white text-black border-white scale-110 shadow-[0_0_20px_rgba(255,255,255,0.3)]' 
                                                         : 'bg-white/5 text-white/40 border-white/10'
@@ -213,7 +213,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                                             initial={{ opacity: 0, y: 10, x: "-50%", scale: 0.95 }}
                                                             animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
                                                             exit={{ opacity: 0, y: 10, x: "-50%", scale: 0.95 }}
-                                                            className="absolute top-full mt-3 left-1/2 w-[150px] bg-[#1a1a1a]/98 backdrop-blur-2xl border border-white/10 p-3 rounded-xl shadow-2xl z-[100] text-center"
+                                                            className="absolute top-full mt-3 left-1/2 w-[150px] bg-[#1a1a1a]/98 backdrop-blur-2xl border border-white/10 p-3 rounded-lg shadow-2xl z-[100] text-center"
                                                         >
                                                             {/* Arrow */}
                                                             <div className="absolute -top-[5px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-[#1a1a1a] border-t border-l border-white/10 rotate-45" />
@@ -246,14 +246,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                             required
                                             type="text"
                                             placeholder="Your Name"
-                                            className="w-full bg-white/[0.05] border border-white/20 rounded-xl px-4 py-3 text-[13px] text-white placeholder:text-white/20 focus:outline-none focus:border-white/50 focus:bg-white/[0.08] transition-all duration-300"
+                                            className="w-full bg-white/[0.05] border border-white/20 rounded-lg px-4 py-3 text-[13px] text-white placeholder:text-white/20 focus:outline-none focus:border-white/50 focus:bg-white/[0.08] transition-all duration-300"
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                         />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-[10px] uppercase tracking-wider text-white/60 font-bold ml-1">Your Email</label>
-                                        <div className="grid grid-cols-[1fr_auto] bg-white/[0.05] border border-white/20 rounded-xl overflow-hidden focus-within:border-white/50 focus-within:bg-white/[0.08] transition-all duration-300">
+                                        <div className="grid grid-cols-[1fr_auto] bg-white/[0.05] border border-white/20 rounded-lg overflow-hidden focus-within:border-white/50 focus-within:bg-white/[0.08] transition-all duration-300">
                                             <input
                                                 required
                                                 type="text"
@@ -292,7 +292,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         required
                                         type="text"
                                         placeholder="Project Inquiry"
-                                        className="w-full bg-white/[0.05] border border-white/20 rounded-xl px-4 py-3 text-[13px] text-white placeholder:text-white/20 focus:outline-none focus:border-white/50 focus:bg-white/[0.08] transition-all duration-300"
+                                        className="w-full bg-white/[0.05] border border-white/20 rounded-lg px-4 py-3 text-[13px] text-white placeholder:text-white/20 focus:outline-none focus:border-white/50 focus:bg-white/[0.08] transition-all duration-300"
                                         value={formData.subject}
                                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                                     />
@@ -304,7 +304,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                         required
                                         rows={4}
                                         placeholder="Briefly describe your project..."
-                                        className="w-full bg-white/[0.05] border border-white/20 rounded-xl px-4 py-3 text-[13px] text-white placeholder:text-white/20 focus:outline-none focus:border-white/50 focus:bg-white/[0.08] transition-all duration-300 resize-none"
+                                        className="w-full bg-white/[0.05] border border-white/20 rounded-lg px-4 py-3 text-[13px] text-white placeholder:text-white/20 focus:outline-none focus:border-white/50 focus:bg-white/[0.08] transition-all duration-300 resize-none"
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                     />
@@ -313,7 +313,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting || isSuccess}
-                                    className={`relative w-full py-4 bg-white text-black font-black rounded-xl transition-all duration-300 ${isSubmitting || isSuccess ? 'pointer-events-none opacity-50' : 'hover:bg-white/90 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,255,255,0.1)] active:scale-[0.98]'} uppercase tracking-[0.3em] text-[10px]`}
+                                    className={`relative w-full py-4 bg-white text-black font-black rounded-lg transition-all duration-300 ${isSubmitting || isSuccess ? 'pointer-events-none opacity-50' : 'hover:bg-white/90 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,255,255,0.1)] active:scale-[0.98]'} uppercase tracking-[0.3em] text-[10px]`}
                                 >
                                     {isSubmitting ? 'Sending...' : isSuccess ? 'Message Sent!' : 'Send Message'}
                                 </button>
