@@ -38,10 +38,27 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 30 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0, 1] }}
-                className="max-w-[1200px] mx-auto bg-card-bg border border-card-border rounded-4xl overflow-hidden relative"
+                className="max-w-[1200px] mx-auto bg-card-bg border border-card-border rounded-4xl overflow-hidden relative group"
             >
+                {/* Background Profile Image */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: mounted ? 0.4 : 0, scale: mounted ? 1 : 1.1 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+                >
+                    <img
+                        src="/img/jaderbyme.png"
+                        alt=""
+                        className="absolute right-[-20%] md:right-[-10%] lg:right-[-5%] top-0 h-[120%] w-auto object-cover object-top opacity-60 md:opacity-80 group-hover:opacity-100 brightness-100 md:brightness-110 transition-all duration-1000 ease-in-out"
+                        style={{
+                            maskImage: 'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0) 100%)',
+                            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0) 100%)'
+                        }}
+                    />
+                </motion.div>
                 {/* Top navigation bar */}
-                <div className="flex items-center justify-between px-8 md:px-12 pt-8">
+                <div className="relative z-10 flex items-center justify-between px-8 md:px-12 pt-8">
                     <div className="flex items-center gap-3">
                         <span className="text-2xl">👋</span>
                         <div>
@@ -77,26 +94,34 @@ export default function Hero() {
                 </div>
  
                 {/* Main hero content */}
-                <div className="grid grid-cols-1 md:grid-cols-[1fr,auto] gap-6 px-8 md:px-12 pt-10 pb-12">
-                    <div className="flex flex-col justify-end">
+                <div className="relative z-10 grid grid-cols-1 gap-6 px-8 md:px-12 pt-10 pb-12">
+                    <div className="flex flex-col justify-end max-w-2xl">
                         <motion.h1
                             initial={{ opacity: 0, y: -20 }}
                             animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-2xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-white mb-2"
+                            className="text-2xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-white mb-2 whitespace-pre-wrap"
                         >
-                            {displayedText}
-                            <motion.span
-                                initial={{ opacity: 1 }}
-                                animate={{ opacity: [1, 1, 0, 0] }}
-                                transition={{
-                                    duration: 1.2,
-                                    repeat: Infinity,
-                                    times: [0, 0.5, 0.5, 1],
-                                    ease: "linear"
-                                }}
-                                className="inline-block w-[3px] h-[0.9em] bg-white ml-2 align-middle"
-                            />
+                            {heroTitle.split('').map((char, index) => (
+                                <span key={index} className="relative">
+                                    <span className={index < displayedText.length ? "text-white" : "text-transparent"}>
+                                        {char}
+                                    </span>
+                                    {index === displayedText.length - 1 && (
+                                        <motion.span
+                                            initial={{ opacity: 1 }}
+                                            animate={{ opacity: [1, 1, 0, 0] }}
+                                            transition={{
+                                                duration: 1.2,
+                                                repeat: Infinity,
+                                                times: [0, 0.5, 0.5, 1],
+                                                ease: "linear"
+                                            }}
+                                            className="absolute left-full top-[10%] w-[3px] h-[0.9em] bg-white translate-x-1"
+                                        />
+                                    )}
+                                </span>
+                            ))}
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -107,24 +132,6 @@ export default function Hero() {
                             Hi, I&apos;m <b>Jaderby</b>, welcome to my corner of the web! I love building and designing websites, and editing layouts, photos, and videos.
                         </motion.p>
                     </div>
-
-                    {/* Profile image */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: mounted ? 1 : 0, scale: mounted ? 1 : 0.95 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="hidden md:flex items-end justify-end"
-                    >
-                        <div className="relative">
-                            <div className="w-[220px] lg:w-[260px] h-[260px] lg:h-[300px] rounded-2xl overflow-hidden">
-                                <img
-                                    src="/img/IMG_202511.png"
-                                    alt="Jaderby Peñaranda"
-                                    className="w-full h-full object-cover object-top"
-                                />
-                            </div>
-                        </div>
-                    </motion.div>
                 </div>
             </motion.div>
         </section>
