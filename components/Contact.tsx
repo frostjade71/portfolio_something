@@ -99,7 +99,7 @@ export default function Contact() {
                         >
                             <button
                                 onClick={() => setIsModalOpen(true)}
-                                className="group inline-flex items-center gap-2.5 px-6 md:px-8 py-3 md:py-4 bg-white text-black font-bold rounded-full hover:bg-white/90 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,255,255,0.1)] active:translate-y-0 transition-all duration-300 uppercase tracking-widest text-[11px] md:text-xs"
+                                className="group inline-flex items-center gap-2.5 px-6 md:px-8 py-3 md:py-4 bg-white text-black font-bold rounded-full hover:bg-white/90 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 uppercase tracking-widest text-[11px] md:text-xs"
                             >
                                 <svg className="w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0 text-black/50 group-hover:text-black transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />

@@ -14,8 +14,10 @@ export default function Home() {
             <Hero />
             <LogoMarquee />
             <AboutSection />
-            <FeaturedProjects />
-            <Projects />
+            <div id="projects" className="scroll-mt-32">
+                <FeaturedProjects />
+                <Projects />
+            </div>
             <Contact />
             <Footer />
         </main>

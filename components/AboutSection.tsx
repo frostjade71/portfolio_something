@@ -62,7 +62,7 @@ export default function AboutSection() {
                                 href="#projects"
                                 className="group inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-all duration-300"
                             >
-                                <svg className="w-4 h-4 flex-shrink-0 text-white/60 group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                <svg className="w-4 h-4 flex-shrink-0 text-blue-400 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                 </svg>
                                 <motion.span
@@ -73,7 +73,7 @@ export default function AboutSection() {
                                 >
                                     Browse My Work
                                     <svg
-                                        className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300"
+                                        className="w-4 h-4 text-blue-400 group-hover:translate-x-2 transition-transform duration-300"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"

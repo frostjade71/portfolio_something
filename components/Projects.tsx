@@ -6,6 +6,22 @@ import { useRef } from 'react'
 
 const projects = [
     {
+        title: 'Kupal Recipe Tree',
+        tech: ['Interactive', 'Minecraft', 'Wiki'],
+        description: 'An interactive, Minecraft recipe wiki and tree viewer built for the Kupal Civilization SMP.',
+        liveLink: 'https://kupal-mc-recipe.vercel.app/',
+        repoLink: 'https://github.com/frostjade71/Kupal-MC-Recipe',
+        image: '/img/recipe.png' as string | null,
+    },
+    {
+        title: 'Aedes Elysiae',
+        tech: ['Landing Page', 'Minecraft', 'Community'],
+        description: 'A Minecraft Community Landing Page designed for Aedes Elysiae civilization group from the Kupal SMP',
+        liveLink: 'https://elysiae-server.vercel.app/',
+        repoLink: 'https://github.com/frostjade71/elysiae-server',
+        image: '/img/aedes.png' as string | null,
+    },
+    {
         title: 'Realm Explorer',
         tech: ['Community Platform', 'Minecraft', 'Directory'],
         description: 'A Minecraft Server & Realm Discovery Platform Website App',
@@ -62,12 +78,36 @@ const projects = [
         image: '/img/writeloft-sc.png' as string | null,
     },
     {
+        title: 'FacultyLink',
+        tech: ['Commisioned Project', 'AI Powered', 'PHP'],
+        description: 'A comprehensive Teacher Tracking and Profiling System designed to streamline campus monitoring and academic visibility.',
+        liveLink: 'https://facultylink.online/',
+        repoLink: 'https://github.com/frostjade71/FacultyLink',
+        image: '/img/facultylink-sc.png' as string | null,
+    },
+    {
         title: 'GWA Calculator',
         tech: ['TypeScript', 'React', 'Tool for Students'],
         description: 'The GWA Calculator helps college students easily track and calculate their General Weighted Average.',
         liveLink: 'https://gwa-calculator-hccci.vercel.app/',
         repoLink: 'https://github.com/frostjade71/gwa_calculator',
         image: '/img/gwa-sc.png' as string | null,
+    },
+    {
+        title: 'Leyeco III Forms Management System',
+        tech: ['Internship Project', 'PHP', 'MySQL'],
+        description: 'A comprehensive web-based forms and operations management system in fulfillment of the On-the-Job training requirement at LEYECO III (Leyte III Electric Cooperative).',
+        liveLink: 'https://leyec.leyeco3portal.com/public/index.php',
+        repoLink: 'https://github.com/frostjade71/leyeco_forms-frontend',
+        image: '/img/leyeco-sc.png' as string | null,
+    },
+    {
+        title: 'Word Weavers',
+        tech: ['Thesis Project', '2D Pixel Game', 'Phaser.js'],
+        description: 'A web-based educational game platform from our Computer Science Thesis Project in fulfillment for the Computer Science Degree',
+        liveLink: 'https://wordweavershccci.online/',
+        repoLink: 'https://github.com/frostjade71/GameDev-G1',
+        image: '/img/wordweavers-sc.jpg' as string | null,
     },
     {
         title: 'myHCCCI',
@@ -84,7 +124,7 @@ export default function Projects() {
     const isInView = useInView(ref, { once: true, margin: '-10%' })
 
     return (
-        <section id="projects" className="py-24 px-4 md:px-8 lg:px-12 scroll-mt-32">
+        <section className="py-24 px-4 md:px-8 lg:px-12 scroll-mt-32">
             <div className="max-w-[1200px] mx-auto">
                 <div className="mb-16">
                     <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-text-dim mb-4">
@@ -118,7 +158,7 @@ export default function Projects() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.6, delay: 0.5 }}
-                        className="group inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black font-bold rounded-full hover:bg-white/90 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] active:translate-y-0 transition-all duration-300 uppercase tracking-widest text-[10px]"
+                        className="group inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black font-bold rounded-full hover:bg-white/90 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 uppercase tracking-widest text-[10px]"
                     >
                         More Projects
                         <svg className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
@@ -151,7 +191,7 @@ function ProjectCard({
             {project.image ? (
                 <div className="relative h-[160px] md:h-[240px] overflow-hidden bg-[#0e0e0e] shrink-0">
                     <div
-                        className="absolute inset-0 bg-cover bg-top transition-transform duration-700 group-hover:scale-110"
+                        className="absolute inset-0 bg-cover bg-top transition-transform duration-700 group-hover:scale-105"
                         style={{ backgroundImage: `url(${project.image})` }}
                     />
                     {/* Subtle gradient overlay at bottom */}
@@ -188,10 +228,10 @@ function ProjectCard({
                     {project.liveLink && (
                         <a 
                             href={project.liveLink} 
-                            className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white bg-white/10 hover:bg-white/30 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:-translate-y-0.5 transition-all duration-300 px-3 py-1.5 rounded-full"
+                            className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white bg-white/10 hover:-translate-y-0.5 transition-all duration-300 px-3 py-1.5 rounded-full"
                             target="_blank" rel="noopener noreferrer"
                         >
-                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <svg className="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
                             Live Preview
@@ -200,7 +240,7 @@ function ProjectCard({
                     {project.repoLink && (
                         <a 
                             href={project.repoLink} 
-                            className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-text-muted hover:text-white hover:bg-white/5 border border-white/10 hover:border-white/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:-translate-y-0.5 transition-all duration-300 px-3 py-1.5 rounded-full"
+                            className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-text-muted hover:text-white hover:bg-white/5 border border-white/10 hover:border-white/50 hover:-translate-y-0.5 transition-all duration-300 px-3 py-1.5 rounded-full"
                             target="_blank" rel="noopener noreferrer"
                         >
                             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">

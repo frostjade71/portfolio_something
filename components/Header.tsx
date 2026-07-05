@@ -104,14 +104,14 @@ export default function Header() {
                                 key={link.name}
                                 href={link.href}
                                 className={`
-                                    px-3 md:px-6 py-2 md:py-2.5 text-[9px] md:text-[11px] font-bold uppercase tracking-[0.12em] md:tracking-[0.15em] transition-all duration-300 rounded-full flex items-center justify-center min-w-[40px] md:min-w-0
+                                    px-3 md:px-6 py-2 md:py-2.5 text-[9px] md:text-[11px] font-bold uppercase tracking-[0.12em] md:tracking-[0.15em] transition-all duration-300 rounded-full flex items-center justify-center gap-1.5 md:gap-2 min-w-[40px] md:min-w-0
                                     ${isActive 
                                         ? 'text-white bg-white/10 shadow-[0_0_15px_rgba(255,255,255,0.1)]' 
-                                        : 'text-text-muted md:hover:text-white md:hover:bg-white/10 md:hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]'}
+                                        : 'text-text-muted md:hover:text-white md:hover:bg-white/10'}
                                 `}
                             >
+                                <span className="flex items-center justify-center">{link.icon}</span>
                                 <span className="hidden md:inline">{link.name}</span>
-                                <span className="md:hidden flex items-center justify-center">{link.icon}</span>
                             </a>
                         )
                     })}
@@ -122,7 +122,7 @@ export default function Header() {
                     href="/Jaderby Peñaranda - Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-1 md:ml-2 px-4 md:px-7 py-2 md:py-2.5 bg-white text-black text-[9px] md:text-[11px] font-bold rounded-full hover:bg-[#e5e5e5] hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(255,255,255,0.2)] active:translate-y-0 transition-all duration-300 uppercase tracking-[0.12em] md:tracking-[0.15em] shadow-[0_4px_12px_rgba(255,255,255,0.1)]"
+                    className="ml-1 md:ml-2 px-4 md:px-7 py-2 md:py-2.5 bg-white text-black text-[9px] md:text-[11px] font-bold rounded-full hover:bg-[#e5e5e5] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 uppercase tracking-[0.12em] md:tracking-[0.15em] shadow-[0_4px_12px_rgba(255,255,255,0.1)]"
                 >
                     Resume
                 </a>

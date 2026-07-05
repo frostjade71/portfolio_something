@@ -313,7 +313,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting || isSuccess}
-                                    className={`relative w-full py-4 bg-white text-black font-black rounded-lg transition-all duration-300 ${isSubmitting || isSuccess ? 'pointer-events-none opacity-50' : 'hover:bg-white/90 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,255,255,0.1)] active:scale-[0.98]'} uppercase tracking-[0.3em] text-[10px]`}
+                                    className={`relative w-full py-4 bg-white text-black font-black rounded-lg transition-all duration-300 ${isSubmitting || isSuccess ? 'pointer-events-none opacity-50' : 'hover:bg-white/90 hover:-translate-y-1 active:scale-[0.98]'} uppercase tracking-[0.3em] text-[10px]`}
                                 >
                                     {isSubmitting ? 'Sending...' : isSuccess ? 'Message Sent!' : 'Send Message'}
                                 </button>
