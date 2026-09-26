@@ -1,19 +1,25 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import About from '@/components/About'
-import Skills from '@/components/Skills'
+import LogoMarquee from '@/components/LogoMarquee'
+import AboutSection from '@/components/AboutSection'
+import FeaturedProjects from '@/components/FeaturedProjects'
 import Projects from '@/components/Projects'
 import Contact from '@/components/Contact'
+import GithubActivity from '@/components/GithubActivity'
 import Footer from '@/components/Footer'
 
 export default function Home() {
     return (
-        <main className="min-h-screen bg-dark-bg">
+        <main className="min-h-screen bg-site-bg">
             <Header />
             <Hero />
-            <About />
-            <Skills />
-            <Projects />
+            <LogoMarquee />
+            <AboutSection />
+            <div id="projects" className="scroll-mt-32">
+                <FeaturedProjects />
+                <Projects />
+            </div>
+            <GithubActivity />
             <Contact />
             <Footer />
         </main>
