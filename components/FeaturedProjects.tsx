@@ -75,13 +75,13 @@ export default function FeaturedProjects() {
     }, [isHovered])
 
     return (
-        <section className="py-16 md:py-24 overflow-hidden">
+        <section className="py-12 md:py-16 overflow-hidden">
             <div className="px-4 md:px-8 lg:px-12 mb-8 md:mb-12">
-                <div className="max-w-[1200px] mx-auto">
+                <div className="max-w-[1000px] mx-auto">
                     <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-text-dim mb-3 md:mb-4">
                         Featured Projects
                     </h2>
-                    <p className="text-2xl md:text-3xl lg:text-5xl font-bold text-white tracking-tight">
+                    <p className="text-xl md:text-2xl lg:text-4xl font-bold text-white tracking-tight">
                         Selected Works
                     </p>
                 </div>
@@ -152,7 +152,7 @@ export default function FeaturedProjects() {
 
 function ProjectCard({ project }: { project: typeof featuredProjects[0] }) {
     return (
-        <div className="w-[260px] md:w-[350px] shrink-0 bg-card-bg border border-card-border rounded-3xl md:rounded-4xl transition-all duration-500 hover:border-white/30 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-white/[0.02] group relative overflow-hidden flex flex-col">
+        <div className="w-[240px] md:w-[320px] shrink-0 bg-card-bg border border-card-border rounded-3xl md:rounded-4xl transition-all duration-500 hover:border-white/30 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-white/[0.02] group relative overflow-hidden flex flex-col">
             
             {/* Preview image */}
             <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-[#0e0e0e]">
@@ -172,8 +172,8 @@ function ProjectCard({ project }: { project: typeof featuredProjects[0] }) {
             </div>
 
             {/* Content Area */}
-            <div className="p-6 md:p-8 bg-card-bg relative z-10 flex flex-col flex-grow -mt-px">
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3 group-hover:text-white group-hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-all duration-300 leading-tight">
+            <div className="p-5 md:p-6 bg-card-bg relative z-10 flex flex-col flex-grow -mt-px">
+                <h3 className="text-base md:text-lg font-bold text-white mb-2 md:mb-3 group-hover:text-white group-hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.1)] transition-all duration-300 leading-tight">
                     {project.title}
                 </h3>
                 <p className="text-[11px] md:text-xs text-text-muted leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity mb-6">
@@ -185,7 +185,7 @@ function ProjectCard({ project }: { project: typeof featuredProjects[0] }) {
                     {project.liveLink && (
                         <a 
                             href={project.liveLink} 
-                            className="flex items-center gap-1.5 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-white bg-white/10 hover:-translate-y-0.5 transition-all duration-300 px-3 py-1.5 rounded-full"
+                            className="flex items-center gap-1.5 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-white bg-white/10 hover:-translate-y-0.5 transition-all duration-300 px-2.5 py-1 rounded-full"
                             target="_blank" rel="noopener noreferrer"
                         >
                             <svg className="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -197,7 +197,7 @@ function ProjectCard({ project }: { project: typeof featuredProjects[0] }) {
                     {project.repoLink && (
                         <a 
                             href={project.repoLink} 
-                            className="flex items-center gap-1.5 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-text-muted hover:text-white hover:bg-white/5 border border-white/10 hover:border-white/50 hover:-translate-y-0.5 transition-all duration-300 px-3 py-1.5 rounded-full"
+                            className="flex items-center gap-1.5 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-text-muted hover:text-white hover:bg-white/5 border border-white/10 hover:border-white/50 hover:-translate-y-0.5 transition-all duration-300 px-2.5 py-1 rounded-full"
                             target="_blank" rel="noopener noreferrer"
                         >
                             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">

@@ -33,12 +33,12 @@ export default function Hero() {
     }, [])
 
     return (
-        <section id="home" className="pt-24 md:pt-36 lg:pt-32 pb-6 md:pb-10 px-4 md:px-8 lg:px-12 scroll-mt-32">
+        <section id="home" className="pt-20 md:pt-28 lg:pt-24 pb-4 md:pb-8 px-4 md:px-8 lg:px-12 scroll-mt-32">
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 30 }}
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0, 1] }}
-                className="max-w-[1200px] mx-auto bg-card-bg border border-card-border rounded-4xl overflow-hidden relative group"
+                className="max-w-[1000px] mx-auto bg-card-bg border border-card-border rounded-4xl overflow-hidden relative group"
             >
                 {/* Background Profile Image */}
                 <motion.div
@@ -58,7 +58,7 @@ export default function Hero() {
                     />
                 </motion.div>
                 {/* Top navigation bar */}
-                <div className="relative z-10 flex items-center justify-between px-8 md:px-12 pt-8">
+                <div className="relative z-10 flex items-center justify-between px-6 md:px-10 pt-8">
                     <div className="flex items-center gap-3">
                         <span className="text-2xl">👋</span>
                         <div>
@@ -94,13 +94,13 @@ export default function Hero() {
                 </div>
  
                 {/* Main hero content */}
-                <div className="relative z-10 grid grid-cols-1 gap-6 px-8 md:px-12 pt-10 pb-12">
+                <div className="relative z-10 grid grid-cols-1 gap-6 px-6 md:px-10 pt-8 pb-10">
                     <div className="flex flex-col justify-end max-w-2xl">
                         <motion.h1
                             initial={{ opacity: 0, y: -20 }}
                             animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-2xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-white mb-2 whitespace-pre-wrap"
+                            className="text-xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-white mb-2 whitespace-pre-wrap"
                         >
                             {heroTitle.split('').map((char, index) => (
                                 <span key={index} className="relative">
@@ -127,7 +127,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: mounted ? 1 : 0, y: mounted ? 0 : 20 }}
                             transition={{ duration: 0.8, delay: 0.35 }}
-                            className="mt-4 md:mt-5 text-[13px] md:text-[15px] text-text-secondary leading-relaxed max-w-md"
+                            className="mt-4 md:mt-5 text-xs md:text-sm text-text-secondary leading-relaxed max-w-md"
                         >
                             Hi, I&apos;m <b>Jaderby</b>, welcome to my corner of the web! I love building and designing websites, and editing layouts, photos, and videos.
                         </motion.p>

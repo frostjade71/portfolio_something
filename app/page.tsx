@@ -5,6 +5,7 @@ import AboutSection from '@/components/AboutSection'
 import FeaturedProjects from '@/components/FeaturedProjects'
 import Projects from '@/components/Projects'
 import Contact from '@/components/Contact'
+import GithubActivity from '@/components/GithubActivity'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
                 <FeaturedProjects />
                 <Projects />
             </div>
+            <GithubActivity />
             <Contact />
             <Footer />
         </main>

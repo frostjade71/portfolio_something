@@ -2,31 +2,50 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 export default function AboutSection() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, margin: '-80px' })
+    const [scrolled, setScrolled] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768)
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+        
+        const handleScroll = () => {
+            if (window.scrollY > 50) setScrolled(true)
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('resize', checkMobile)
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
+
+    const shouldAnimate = isMobile ? scrolled : isInView
 
     return (
-        <section id="about" className="py-10 px-4 md:px-8 lg:px-12 scroll-mt-32">
+        <section id="about" className="py-8 px-4 md:px-8 lg:px-12 scroll-mt-32">
             <motion.div
                 ref={ref}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                 transition={{ duration: 0.8 }}
-                className="max-w-[1200px] mx-auto"
+                className="max-w-[1000px] mx-auto relative"
             >
-                <div className="bg-card-bg border border-card-border rounded-4xl p-6 md:p-14 lg:p-16">
+                <div className="bg-card-bg border border-card-border rounded-4xl p-5 md:p-10 lg:p-12 relative overflow-hidden">
                     <div className="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-10 md:gap-14 items-center">
                         {/* Avatar */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
-                            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                            animate={shouldAnimate ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="flex justify-center md:justify-start"
                         >
-                            <div className="w-[150px] h-[170px] md:w-[220px] md:h-[250px] rounded-xl md:rounded-2xl overflow-hidden">
+                            <div className="w-[130px] h-[150px] md:w-[180px] md:h-[200px] rounded-xl md:rounded-2xl overflow-hidden">
                                 <img
                                     src="/img/deanslister.jpg"
                                     alt="Jaderby"
@@ -39,25 +58,25 @@ export default function AboutSection() {
                         <div>
                             <motion.h2
                                 initial={{ opacity: 0, y: 20 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
-                                className="text-xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-4"
+                                className="text-lg sm:text-2xl md:text-3xl font-bold text-white leading-tight mb-4"
                             >
                                 About Me
                             </motion.h2>
 
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                                animate={shouldAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                                 transition={{ duration: 0.6, delay: 0.4 }}
-                                className="text-[13px] md:text-[14px] text-text-secondary leading-relaxed mb-6 md:mb-8 max-w-lg"
+                                className="text-xs md:text-sm text-text-secondary leading-relaxed mb-6 md:mb-8 max-w-lg"
                             >
                                 I am a dedicated graduate of Holy Cross College of Carigara Incorporated with a Bachelor of Science in Computer Science. Having been a consistent Dean&apos;s Lister throughout my academic years, I have built strong skills in web development through my studies and hands-on projects. Beyond programming, I also have experience in multimedia arts, including layout design and video editing.
                             </motion.p>
 
                             <motion.a
                                 initial={{ opacity: 0 }}
-                                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                                animate={shouldAnimate ? { opacity: 1 } : { opacity: 0 }}
                                 transition={{ duration: 0.6, delay: 0.5 }}
                                 href="#projects"
                                 className="group inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-all duration-300"
@@ -67,7 +86,7 @@ export default function AboutSection() {
                                 </svg>
                                 <motion.span
                                     initial={{ width: 0, opacity: 0 }}
-                                    animate={isInView ? { width: 'auto', opacity: 1 } : { width: 0, opacity: 0 }}
+                                    animate={shouldAnimate ? { width: 'auto', opacity: 1 } : { width: 0, opacity: 0 }}
                                     transition={{ duration: 1.2, delay: 0.8, ease: [0.19, 1, 0.22, 1] }}
                                     className="overflow-hidden whitespace-nowrap flex items-center gap-2"
                                 >

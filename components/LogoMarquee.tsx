@@ -13,7 +13,7 @@ const brands = [
     { name: 'Tailwind', icon: 'tailwind' },
     { name: 'React', icon: 'react' },
     { name: 'Vite', icon: 'vite' },
-    { name: 'Tailwind', icon: 'tailwind' },
+    { name: 'Figma', icon: 'figma' },
     { name: 'PHP', icon: 'php' },
     { name: 'Node.js', icon: 'nodejs' },
     { name: 'Python', icon: 'python' },
@@ -40,7 +40,7 @@ export default function LogoMarquee() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6 }}
-                className="max-w-[1200px] mx-auto"
+                className="max-w-[1000px] mx-auto"
             >
                 <p className="text-center text-xs text-text-muted tracking-wider uppercase mb-8 font-medium">
                     Tools and Languages i worked with
