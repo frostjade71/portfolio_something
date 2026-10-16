@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import SpecularButton from './SpecularButton'
 
 const featuredProjects = [
     {
@@ -183,16 +184,30 @@ function ProjectCard({ project }: { project: typeof featuredProjects[0] }) {
                 {/* Action Buttons */}
                 <div className="flex items-center gap-2 md:gap-3 mt-auto">
                     {project.liveLink && (
-                        <a 
-                            href={project.liveLink} 
-                            className="flex items-center gap-1.5 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-white bg-white/10 hover:-translate-y-0.5 transition-all duration-300 px-2.5 py-1 rounded-full"
-                            target="_blank" rel="noopener noreferrer"
+                        <SpecularButton
+                            href={project.liveLink}
+                            size="sm"
+                            radius={999}
+                            tint="#ffffff"
+                            tintOpacity={0.06}
+                            textColor="#ffffff"
+                            lineColor="#60a5fa"
+                            baseColor="#2563eb"
+                            intensity={1.2}
+                            idleIntensity={0.35}
+                            shineSize={14}
+                            shineFade={32}
+                            thickness={1.2}
+                            glow={1.2}
+                            followMouse
+                            proximity={200}
+                            className="!py-1 !px-2.5 !text-[9px] md:!text-[10px] uppercase font-bold tracking-wider"
                         >
                             <svg className="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
                             Live Preview
-                        </a>
+                        </SpecularButton>
                     )}
                     {project.repoLink && (
                         <a 

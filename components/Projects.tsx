@@ -1,153 +1,237 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
+import { useRef, useState } from 'react'
+import SpecularButton from './SpecularButton'
 
-const projects = [
+const categories = ['Web App', 'Frontend'] as const
+type Category = (typeof categories)[number]
+
+interface Project {
+    title: string
+    category: Category
+    tech: string[]
+    description: string
+    liveLink: string | null
+    repoLink: string | null
+    image: string | null
+}
+
+const projects: Project[] = [
     {
-        title: 'Kupal Recipe Tree',
-        tech: ['Interactive', 'Minecraft', 'Wiki'],
-        description: 'An interactive, Minecraft recipe wiki and tree viewer built for the Kupal Civilization SMP.',
-        liveLink: 'https://kupal-mc-recipe.vercel.app/',
-        repoLink: 'https://github.com/frostjade71/Kupal-MC-Recipe',
-        image: '/img/recipe.png' as string | null,
-    },
-    {
-        title: 'Aedes Elysiae',
-        tech: ['Landing Page', 'Minecraft', 'Community'],
-        description: 'A Minecraft Community Landing Page designed for Aedes Elysiae civilization group from the Kupal SMP',
-        liveLink: 'https://elysiae-server.vercel.app/',
-        repoLink: 'https://github.com/frostjade71/elysiae-server',
-        image: '/img/aedes.png' as string | null,
+        title: 'Clarifyr',
+        category: 'Web App',
+        tech: ['AI Chat', 'Developer Tool', 'LLM'],
+        description: 'AI-powered text clarification and simplification tool, for debugging error messages, complex code snippets, or anything else.',
+        liveLink: null,
+        repoLink: 'https://github.com/frostjade71/Clarifyr',
+        image: '/img/clarifyr.png',
     },
     {
         title: 'Realm Explorer',
-        tech: ['Community Platform', 'Minecraft', 'Directory'],
+        category: 'Web App',
+        tech: ['Community Platform','Directory'],
         description: 'A Minecraft Server & Realm Discovery Platform Website App',
         liveLink: 'https://www.realmexplorer.xyz/',
         repoLink: 'https://github.com/frostjade71/RealmExplorer',
-        image: '/img/realmexplorer.png' as string | null,
-    },
-    {
-        title: 'Celestial Network',
-        tech: ['Landing Page', 'Minecraft', 'Discord'],
-        description: 'A Minecraft Community Landing Page designed for Celestial Network',
-        liveLink: 'https://celestial-network.vercel.app/',
-        repoLink: 'https://github.com/frostjade71/celestial_network',
-        image: '/img/celestial.png' as string | null,
+        image: '/img/realmexplorer.png',
     },
     {
         title: 'Git Glyph',
-        tech: ['Summary Cards', 'TypeScript', 'React'],
+        category: 'Web App',
+        tech: ['Github Profile', 'Showcase'],
         description: 'A GitHub Summary Card Generator designed for developers to showcase their profiles with style',
         liveLink: 'https://git-glyph-sigma.vercel.app/',
         repoLink: 'https://github.com/frostjade71/git-glyph',
-        image: '/img/gitglyph-sc.png' as string | null,
+        image: '/img/gitglyph-sc.png',
     },
     {
         title: 'SQLviz',
-        tech: ['TypeScript', 'React', 'Tool for Developers'],
+        category: 'Web App',
+        tech: ['Database', 'Visualization'],
         description: 'A SQL Schema Visualizer for developers and DBAs who need to explore MySQL and PostgreSQL DDL schemas',
         liveLink: 'https://sqlviz-olive.vercel.app/',
         repoLink: 'https://github.com/frostjade71/sqlviz',
-        image: '/img/sqlviz-sc.png' as string | null,
-    },
-    {
-        title: 'HR Payroll Management System',
-        tech: ['React', 'Vite', 'Payment Gateway'],
-        description: 'A modern, frontend-only HR Payroll Management System dashboard designed for businesses to manage their employees and track attendance.',
-        liveLink: 'https://hrm-employee-payroll.vercel.app/',
-        repoLink: 'https://github.com/frostjade71/HRM-Employee-Payroll',
-        image: '/img/hr-sc.png' as string | null,
-    },
-    {
-        title: 'CozyCorner',
-        tech: ['Booking', 'React', 'TypeScript'],
-        description: 'Hotel Booking Management System designed for solo and business travelers.',
-        liveLink: 'https://cozy-corner-eta.vercel.app/',
-        repoLink: 'https://github.com/frostjade71/CozyCorner',
-        image: '/img/cozycorner-sc.png' as string | null,
+        image: '/img/sqlviz-sc.png',
     },
     {
         title: 'WriteLoft',
-        tech: ['TypeScript', 'React', 'Tool for Students'],
+        category: 'Web App',
+        tech: ['Collaboration','Real-time'],
         description: 'A real-time collaborative note-taking web app designed for teams, students, and project groups with instant synchronization.',
         liveLink: 'https://write-loft.vercel.app/',
         repoLink: 'https://github.com/frostjade71/WriteLoft',
-        image: '/img/writeloft-sc.png' as string | null,
+        image: '/img/writeloft-sc.png',
     },
     {
         title: 'FacultyLink',
+        category: 'Web App',
         tech: ['Commisioned Project', 'AI Powered', 'PHP'],
         description: 'A comprehensive Teacher Tracking and Profiling System designed to streamline campus monitoring and academic visibility.',
         liveLink: 'https://facultylink.online/',
         repoLink: 'https://github.com/frostjade71/FacultyLink',
-        image: '/img/facultylink-sc.png' as string | null,
+        image: '/img/facultylink-sc.png',
     },
     {
         title: 'GWA Calculator',
-        tech: ['TypeScript', 'React', 'Tool for Students'],
+        category: 'Web App',
+        tech: ['Tool for Students'],
         description: 'The GWA Calculator helps college students easily track and calculate their General Weighted Average.',
         liveLink: 'https://gwa-calculator-hccci.vercel.app/',
         repoLink: 'https://github.com/frostjade71/gwa_calculator',
-        image: '/img/gwa-sc.png' as string | null,
+        image: '/img/gwa-sc.png',
     },
     {
         title: 'Leyeco III Forms Management System',
+        category: 'Web App',
         tech: ['Internship Project', 'PHP', 'MySQL'],
         description: 'A comprehensive web-based forms and operations management system in fulfillment of the On-the-Job training requirement at LEYECO III (Leyte III Electric Cooperative).',
         liveLink: 'https://leyec.leyeco3portal.com/public/index.php',
         repoLink: 'https://github.com/frostjade71/leyeco_forms-frontend',
-        image: '/img/leyeco-sc.png' as string | null,
+        image: '/img/leyeco-sc.png',
     },
     {
         title: 'Word Weavers',
+        category: 'Web App',
         tech: ['Thesis Project', '2D Pixel Game', 'Phaser.js'],
         description: 'A web-based educational game platform from our Computer Science Thesis Project in fulfillment for the Computer Science Degree',
         liveLink: 'https://wordweavershccci.online/',
         repoLink: 'https://github.com/frostjade71/GameDev-G1',
-        image: '/img/wordweavers-sc.jpg' as string | null,
+        image: '/img/wordweavers-sc.jpg',
     },
     {
         title: 'myHCCCI',
+        category: 'Web App',
         tech: ['Social Platform', 'CRUD', 'Community'],
         description: "myHCCCI is a social media platform developed to connect students across Holy Cross College of Carigara's departments.",
         liveLink: null,
         repoLink: 'https://github.com/frostjade71/myhccci',
-        image: '/img/myhccci.webp' as string | null,
+        image: '/img/myhccci.webp',
+    },
+
+    {
+        title: 'StockFlow',
+        category: 'Frontend',
+        tech: ['Dashboard', 'Inventory', 'Responsive'],
+        description: 'A Simple Inventory Management Dashboard designed to monitor supply chains with ease.',
+        liveLink: 'https://stockflow-frontend-neon.vercel.app/',
+        repoLink: 'https://github.com/frostjade71/Stockflow--Frontend-',
+        image: '/img/sc-dashboard.png',
+    },
+    {
+        title: 'HR Payroll Management Frontend',
+        category: 'Frontend',
+        tech: ['Dashboard','Payment Gateway'],
+        description: 'A modern, frontend-only HR Payroll Management System dashboard designed for businesses to manage their employees and track attendance.',
+        liveLink: 'https://hrm-employee-payroll.vercel.app/',
+        repoLink: 'https://github.com/frostjade71/HRM-Employee-Payroll',
+        image: '/img/hr-sc.png',
+    },
+    {
+        title: 'CozyCorner',
+        category: 'Frontend',
+        tech: ['Booking', 'Travel', 'Hotel'],
+        description: 'Hotel Booking Management System designed for solo and business travelers.',
+        liveLink: 'https://cozy-corner-eta.vercel.app/',
+        repoLink: 'https://github.com/frostjade71/CozyCorner',
+        image: '/img/cozycorner-sc.png',
+    },
+    {
+        title: 'Aedes Elysiae',
+        category: 'Frontend',
+        tech: ['Landing Page', 'Minecraft', 'Community'],
+        description: 'A Minecraft Community Landing Page designed for Aedes Elysiae civilization group from the Kupal SMP',
+        liveLink: 'https://elysiae-server.vercel.app/',
+        repoLink: 'https://github.com/frostjade71/elysiae-server',
+        image: '/img/aedes.png',
+    },
+    {
+        title: 'Kupal Recipe Tree',
+        category: 'Frontend',
+        tech: ['Interactive', 'Minecraft', 'Wiki'],
+        description: 'An interactive, Minecraft recipe wiki and tree viewer built for the Kupal Civilization SMP.',
+        liveLink: 'https://kupal-mc-recipe.vercel.app/',
+        repoLink: 'https://github.com/frostjade71/Kupal-MC-Recipe',
+        image: '/img/recipe.png',
+    },
+    {
+        title: 'Celestial Network',
+        category: 'Frontend',
+        tech: ['Landing Page', 'Minecraft', 'Discord'],
+        description: 'A Minecraft Community Landing Page designed for Celestial Network',
+        liveLink: 'https://celestial-network.vercel.app/',
+        repoLink: 'https://github.com/frostjade71/celestial_network',
+        image: '/img/celestial.png',
     },
 ]
 
 export default function Projects() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, margin: '-10%' })
+    const [activeTab, setActiveTab] = useState<Category>('Web App')
+
+    const filteredProjects = projects.filter((project) => project.category === activeTab)
 
     return (
         <section className="py-16 md:py-20 px-4 md:px-8 lg:px-12 scroll-mt-32">
             <div className="max-w-[1000px] mx-auto">
-                <div className="mb-12">
-                    <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-text-dim mb-4">
-                        Archive
-                    </h2>
-                    <p className="text-2xl md:text-3xl lg:text-[2rem] font-bold text-white tracking-tight leading-tight">
-                        Recent Projects
-                    </p>
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-12">
+                    <div>
+                        <h2 className="text-[10px] uppercase tracking-[0.3em] font-bold text-text-dim mb-4">
+                            Archive
+                        </h2>
+                        <p className="text-2xl md:text-3xl lg:text-[2rem] font-bold text-white tracking-tight leading-tight">
+                            Recent Projects
+                        </p>
+                    </div>
+
+                    <div className="inline-flex items-center gap-1 p-1 bg-card-bg/80 border border-card-border rounded-xl backdrop-blur-md self-start md:self-auto shadow-sm">
+                        {categories.map((tab) => {
+                            const isActive = activeTab === tab
+
+                            return (
+                                <button
+                                    key={tab}
+                                    onClick={() => setActiveTab(tab)}
+                                    className={`relative px-3 md:px-3.5 py-1.5 rounded-lg text-[11px] md:text-xs font-semibold transition-all duration-300 outline-none select-none ${
+                                        isActive ? 'text-black' : 'text-text-muted hover:text-white'
+                                    }`}
+                                >
+                                    {isActive && (
+                                        <motion.div
+                                            layoutId="activeCategoryTab"
+                                            className="absolute inset-0 bg-white rounded-lg shadow-sm"
+                                            transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                                        />
+                                    )}
+                                    <span className="relative z-10">{tab}</span>
+                                </button>
+                            )
+                        })}
+                    </div>
                 </div>
 
-                <motion.div
-                    ref={ref}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-                >
-                    {projects.map((project, index) => (
-                        <ProjectCard
-                            key={project.title}
-                            project={project}
-                            index={index}
-                            isInView={isInView}
-                        />
-                    ))}
-                </motion.div>
+                <div ref={ref}>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -15 }}
+                            transition={{ duration: 0.35, ease: 'easeOut' }}
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+                        >
+                            {filteredProjects.map((project, index) => (
+                                <ProjectCard
+                                    key={project.title}
+                                    project={project}
+                                    index={index}
+                                    isInView={isInView}
+                                />
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
                 
                 {/* More Projects Button */}
                 <div className="mt-12 md:mt-16 flex justify-center">
@@ -157,7 +241,7 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
                         className="group inline-flex items-center gap-2.5 px-6 md:px-8 py-3 md:py-4 bg-white text-black font-bold rounded-xl hover:bg-white/90 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 uppercase tracking-widest text-[11px] md:text-xs"
                     >
                         <svg className="w-3.5 h-3.5 md:w-4 md:h-4 flex-shrink-0 text-black/50 group-hover:text-black transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
@@ -189,7 +273,7 @@ function ProjectCard({
     index,
     isInView,
 }: {
-    project: (typeof projects)[number]
+    project: Project
     index: number
     isInView: boolean
 }) {
@@ -197,7 +281,7 @@ function ProjectCard({
         <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
+            transition={{ duration: 0.5, delay: index * 0.06 }}
             className="group block bg-card-bg border border-card-border rounded-3xl overflow-hidden hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-white/[0.02] transition-all duration-500 flex flex-col h-full"
         >
             {/* Screenshot area */}
@@ -239,16 +323,30 @@ function ProjectCard({
                 {/* Action Buttons */}
                 <div className="mt-auto flex items-center gap-3">
                     {project.liveLink && (
-                        <a 
-                            href={project.liveLink} 
-                            className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-white bg-white/10 hover:-translate-y-0.5 transition-all duration-300 px-2.5 py-1 rounded-full"
-                            target="_blank" rel="noopener noreferrer"
+                        <SpecularButton
+                            href={project.liveLink}
+                            size="sm"
+                            radius={999}
+                            tint="#ffffff"
+                            tintOpacity={0.06}
+                            textColor="#ffffff"
+                            lineColor="#60a5fa"
+                            baseColor="#2563eb"
+                            intensity={1.2}
+                            idleIntensity={0.35}
+                            shineSize={14}
+                            shineFade={32}
+                            thickness={1.2}
+                            glow={1.2}
+                            followMouse
+                            proximity={200}
+                            className="!py-1 !px-2.5 !text-[10px] uppercase font-bold tracking-wider"
                         >
                             <svg className="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
                             Live Preview
-                        </a>
+                        </SpecularButton>
                     )}
                     {project.repoLink && (
                         <a 
@@ -262,8 +360,14 @@ function ProjectCard({
                             Repo
                         </a>
                     )}
+                    {!project.liveLink && !project.repoLink && (
+                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-text-dim px-2.5 py-1 rounded-full border border-white/5 bg-white/[0.02]">
+                            In Progress
+                        </span>
+                    )}
                 </div>
             </div>
         </motion.div>
     )
 }
+
