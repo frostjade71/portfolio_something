@@ -8,7 +8,7 @@
 - **Language:** TypeScript
 - **Deployment:** Docker
 
-## 🎨 Customization
+## 🎨 Customization and such
 
 The portfolio uses a custom color scheme defined in `tailwind.config.ts`:
 

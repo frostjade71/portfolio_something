@@ -9,34 +9,30 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                'dark-bg': '#0a0a0a',
-                'dark-secondary': '#111111',
-                'dark-accent': '#1a1a1a',
-                'light-gray': '#a0a0a0',
-                'white-text': '#ffffff',
+                'site-bg': '#0a0a0a',
+                'card-bg': '#141414',
+                'card-border': '#1f1f1f',
+                'card-hover': '#1a1a1a',
+                'text-primary': '#ffffff',
+                'text-secondary': '#999999',
+                'text-muted': '#666666',
+                'text-dim': '#444444',
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],
-                mono: ['JetBrains Mono', 'monospace'],
+                serif: ['DM Serif Display', 'Georgia', 'serif'],
             },
             animation: {
-                'fade-in': 'fadeIn 0.6s ease-out',
-                'slide-up': 'slideUp 0.6s ease-out',
-                'glow': 'glow 2s ease-in-out infinite',
+                'fade-in': 'fadeInUp 0.8s ease-out',
+                'fade-in-delay': 'fadeInUp 0.8s ease-out 0.2s both',
+                'marquee': 'marquee 40s linear infinite',
+                'marquee-reverse': 'marquee-reverse 40s linear infinite',
             },
-            keyframes: {
-                fadeIn: {
-                    '0%': { opacity: '0' },
-                    '100%': { opacity: '1' },
-                },
-                slideUp: {
-                    '0%': { transform: 'translateY(20px)', opacity: '0' },
-                    '100%': { transform: 'translateY(0)', opacity: '1' },
-                },
-                glow: {
-                    '0%, 100%': { boxShadow: '0 0 20px rgba(255, 255, 255, 0.1)' },
-                    '50%': { boxShadow: '0 0 30px rgba(255, 255, 255, 0.2)' },
-                },
+            borderRadius: {
+                '2xl': '0.75rem',
+                '3xl': '1rem',
+                '4xl': '1.25rem',
+                '5xl': '1.5rem',
             },
         },
     },
